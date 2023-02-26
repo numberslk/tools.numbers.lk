@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#3B2A16",
+    "titleBar.activeBackground": "#523B1E",
+    "titleBar.activeForeground": "#FCFAF8"
+  },
+  "conventionalCommits.scopes": [
+    "ALL"
+  ]
+}

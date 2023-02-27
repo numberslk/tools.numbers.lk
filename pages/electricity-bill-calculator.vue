@@ -5,8 +5,8 @@
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      class="mb-6" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="mb-6" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
@@ -57,9 +57,9 @@
                       $t('pages.electricity-bill-calculator.headings.description')
                     }}
                   </p>
-                  <div class="flex flex-col md:flex-row">
+                  <div class="flex flex-col lg:flex-row">
 
-                    <div class="relative flex w-full mb-2 md:mb-0">
+                    <div class="relative flex w-full mb-2 lg:mb-0">
                       <FormTextInput v-model="units" class="w-full">
                         <template #prefix-disabled>
                           <span class="flex-1 px-4 py-2">Units</span>
@@ -73,7 +73,7 @@
                         <span class="flex-1 px-4 py-2">Period</span>
                       </div>
                       <vue-tailwind-datepicker :formatter="formatter" separator=" to "
-                        class="z-50 w-full rounded-none rounded-r-md dark:bg-transparent" v-model="dateValue" />
+                        class="z-50 w-full bg-transparent rounded-none rounded-r-md" v-model="dateValue" />
                     </div>
 
                     <Button type="opposite" @click="calculateElecBill" placeholder="Enter number of Units"
@@ -291,8 +291,8 @@
                                                                                                                   'pages.setting.sections.validate_username.footer_link'
                                                                                                                 )
                                                                                                               " href="https://docs.github.com/en/rest/users/users#get-a-user" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </CardFooter> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </CardFooter> -->
               </Card>
             </TabPanel>
             <TabPanel>

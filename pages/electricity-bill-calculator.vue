@@ -5,8 +5,8 @@
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                class="mb-6" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="mb-6" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
@@ -76,7 +76,7 @@
                         class="z-50 w-full bg-transparent rounded-none rounded-r-md" v-model="dateValue" />
                     </div>
 
-                    <Button type="opposite" @click="calculateElecBill" placeholder="Enter number of Units"
+                    <Button type="opposite" @click="calculateFinalBill" placeholder="Enter number of Units"
                       class="flex mb-2 space-x-1 border-none md:mb-0">
                       <icon-ic:baseline-calculate />
                       <span>{{ $t('others.calculate') }}</span>
@@ -291,8 +291,8 @@
                                                                                                                   'pages.setting.sections.validate_username.footer_link'
                                                                                                                 )
                                                                                                               " href="https://docs.github.com/en/rest/users/users#get-a-user" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </CardFooter> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </CardFooter> -->
               </Card>
             </TabPanel>
             <TabPanel>
@@ -453,16 +453,12 @@ const enableAdvancedSetting = ref(false)
 
 // app.component('ByLine', ByLine)
 
+const log = ref<string[]>([])
+
 const dateValue = ref([])
 const formatter = ref({
   date: 'DD MMM YYYY',
   month: 'MMM',
-  options: {
-    shortcuts: {
-      currentMonth: 'Bulan ini',
-      pastMonth: 'Bulan lalu'
-    },
-  }
 })
 
 // const options = ref({
@@ -636,15 +632,25 @@ function calculateFixCharge(numberOfUnits: number, numberOfDays: number) {
   }
 
   //montly adjesment
-  if (numberOfDays < 54) {
-    applicableFixedCharge2.previous = applicableFixedCharge2.previous;
-    applicableFixedCharge2.current = applicableFixedCharge2.current;
-    applicableFixedCharge2.new = applicableFixedCharge2.new;
-  } else {
-    applicableFixedCharge2.previous = applicableFixedCharge2.previous * numberOfDays / 30;
-    applicableFixedCharge2.current = applicableFixedCharge2.current * numberOfDays / 30;
-    applicableFixedCharge2.new = applicableFixedCharge2.new * numberOfDays / 30;
-  }
+  // if (numberOfDays < 54) {
+  applicableFixedCharge2.previous = applicableFixedCharge2.previous;
+  applicableFixedCharge2.current = applicableFixedCharge2.current;
+  applicableFixedCharge2.new = applicableFixedCharge2.new;
+
+  log.value.push(`Fixed Charge: ${applicableFixedCharge2.previous}`)
+  log.value.push(`Fixed Charge: ${applicableFixedCharge2.current}`)
+  log.value.push(`Fixed Charge: ${applicableFixedCharge2.new}`)
+
+  // } else {
+  //   applicableFixedCharge2.previous = applicableFixedCharge2.previous * numberOfDays / 30;
+  //   applicableFixedCharge2.current = applicableFixedCharge2.current * numberOfDays / 30;
+  //   applicableFixedCharge2.new = applicableFixedCharge2.new * numberOfDays / 30;
+
+  //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.previous} x ${numberOfDays} / 30`);
+  //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.current} x ${numberOfDays} / 30`);
+  //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.new} x ${numberOfDays} / 30`);
+
+  // }
 
   return applicableFixedCharge2;
 
@@ -658,96 +664,174 @@ function calculateEnergyCharge(numberOfUnits: number, numberOfDays: number) {
     new: 0
   }
 
-  const block_30 = Math.floor(30 * (numberOfDays / 30));
-  const block_60 = Math.floor(60 * (numberOfDays / 30));
-  const block_90 = Math.floor(90 * (numberOfDays / 30));
-  const block_120 = Math.floor(120 * (numberOfDays / 30));
-  const block_180 = Math.floor(180 * (numberOfDays / 30));
+  let block_30 = Math.floor(30 * (numberOfDays / 30));
+  let block_60 = Math.floor(60 * (numberOfDays / 30));
+  let block_90 = Math.floor(90 * (numberOfDays / 30));
+  let block_120 = Math.floor(120 * (numberOfDays / 30));
+  let block_180 = Math.floor(180 * (numberOfDays / 30));
+
+  console.log(block_30, block_60, block_90)
 
   if (numberOfUnits <= block_30) {
     totals2.previous = numberOfUnits * energyCharge.previous.units_0_30;
-  } else if (numberOfUnits <= block_60) {
+
+  } else if (numberOfUnits < block_60) {
     totals2.previous = block_30 * energyCharge.previous.units_0_30 + (numberOfUnits - block_30) * energyCharge.previous.units_31_60;
-  } else if (numberOfUnits <= block_90) {
+
+  } else if (numberOfUnits < block_90) {
     totals2.previous = block_60 * energyCharge.previous.units_0_60 + (numberOfUnits - block_60) * energyCharge.previous.units_61_90;
-  } else if (numberOfUnits <= block_120) {
-    totals2.previous = block_60 * energyCharge.previous.units_0_60 + block_30 * energyCharge.previous.units_61_90 + (numberOfUnits - block_90) * energyCharge.previous.units_91_120;
-  } else if (numberOfUnits <= 180) {
-    totals2.previous = block_60 * energyCharge.previous.units_0_60 + block_30 * energyCharge.previous.units_61_90 + block_30 * energyCharge.previous.units_91_120 + (numberOfUnits - block_120) * energyCharge.previous.units_121_180;
+
+  } else if (numberOfUnits < block_120) {
+
+    totals2.previous = block_60 * energyCharge.previous.units_0_60 + (block_90 - block_60) * energyCharge.previous.units_61_90 + (numberOfUnits - block_90) * energyCharge.previous.units_91_120;
+
+  } else if (numberOfUnits < block_180) {
+    totals2.previous = block_60 * energyCharge.previous.units_0_60 + (block_90 - block_60) * energyCharge.previous.units_61_90 + (block_120 - block_90) * energyCharge.previous.units_91_120 + (numberOfUnits - block_120) * energyCharge.previous.units_121_180;
+
   } else {
-    totals2.previous = block_60 * energyCharge.previous.units_0_60 + block_30 * energyCharge.previous.units_61_90 + block_30 * energyCharge.previous.units_91_120 + block_60 * energyCharge.previous.units_121_180 + (numberOfUnits - block_180) * energyCharge.previous.units_181;
+    totals2.previous = block_60 * energyCharge.previous.units_0_60 + (block_90 - block_60) * energyCharge.previous.units_61_90 + (block_120 - block_90) * energyCharge.previous.units_91_120 + (block_180 - block_120) * energyCharge.previous.units_121_180 + (numberOfUnits - block_180) * energyCharge.previous.units_181;
   }
 
   //montly adjesment
   if (numberOfUnits <= block_30) {
     totals2.current = numberOfUnits * energyCharge.current.units_0_30;
-  } else if (numberOfUnits <= block_60) {
+    log.value.push(`Current Energy Charge 30: Rs.${energyCharge.current.units_0_30} x ${numberOfUnits}`);
+
+  } else if (numberOfUnits < block_60) {
     totals2.current = block_30 * energyCharge.current.units_0_30 + (numberOfUnits - block_30) * energyCharge.current.units_31_60;
-  } else if (numberOfUnits <= block_90) {
+    log.value.push(`Current Energy Charge 60: ${block_30} x Rs.${energyCharge.current.units_0_30} + ${numberOfUnits - block_30} x Rs.${energyCharge.current.units_31_60}`);
+
+  } else if (numberOfUnits < block_90) {
     totals2.current = block_60 * energyCharge.current.units_0_60 + (numberOfUnits - block_60) * energyCharge.current.units_61_90;
-  } else if (numberOfUnits <= block_120) {
-    totals2.current = block_60 * energyCharge.current.units_0_60 + block_30 * energyCharge.current.units_61_90 + (numberOfUnits - block_90) * energyCharge.current.units_91_120;
-  } else if (numberOfUnits <= 180) {
-    totals2.current = block_60 * energyCharge.current.units_0_60 + block_30 * energyCharge.current.units_61_90 + block_30 * energyCharge.current.units_91_120 + (numberOfUnits - block_120) * energyCharge.current.units_121_180;
+    log.value.push(`Current Energy Charge 90: ${block_60} x Rs.${energyCharge.current.units_0_60} + ${numberOfUnits - block_60} x Rs.${energyCharge.current.units_61_90}`);
+
+  } else if (numberOfUnits < block_120) {
+    totals2.current = block_60 * energyCharge.current.units_0_60 + (block_90 - block_60) * energyCharge.current.units_61_90 + (numberOfUnits - block_90) * energyCharge.current.units_91_120;
+    log.value.push(`${block_60} x Rs.${energyCharge.current.units_0_60} + ${block_90 - block_60} x Rs.${energyCharge.current.units_61_90} + ${(numberOfUnits - block_90)} x Rs.${energyCharge.current.units_91_120}`);
+
+  } else if (numberOfUnits < block_180) {
+    totals2.current = block_60 * energyCharge.current.units_0_60 + (block_90 - block_60) * energyCharge.current.units_61_90 + (block_120 - block_90) * energyCharge.current.units_91_120 + (numberOfUnits - block_120) * energyCharge.current.units_121_180;
+    log.value.push(`${block_60} x Rs.${energyCharge.current.units_0_60} + ${block_90 - block_60} x Rs.${energyCharge.current.units_61_90} + ${block_120 - block_90} x Rs.${energyCharge.current.units_91_120} + ${numberOfUnits - block_120} x Rs.${energyCharge.current.units_121_180}`);
+
   } else {
-    totals2.current = block_60 * energyCharge.current.units_0_60 + block_30 * energyCharge.current.units_61_90 + block_30 * energyCharge.current.units_91_120 + block_60 * energyCharge.current.units_121_180 + (numberOfUnits - block_180) * energyCharge.current.units_181;
+    totals2.current = block_60 * energyCharge.current.units_0_60 + (block_90 - block_60) * energyCharge.current.units_61_90 + (block_120 - block_90) * energyCharge.current.units_91_120 + (block_180 - block_120) * energyCharge.current.units_121_180 + (numberOfUnits - block_180) * energyCharge.current.units_181;
+    log.value.push(`${block_60} x Rs.${energyCharge.current.units_0_60} + ${block_90 - block_60} x Rs.${energyCharge.current.units_61_90} + ${block_120 - block_90} x Rs.${energyCharge.current.units_91_120} + ${block_180 - block_120} x Rs.${energyCharge.current.units_121_180} + ${(numberOfUnits - block_180)} x Rs.${energyCharge.current.units_181}`);
   }
 
   if (numberOfUnits <= block_30) {
     totals2.new = numberOfUnits * energyCharge.new.units_0_30;
+    log.value.push(`New Energy Charge 30: Rs.${energyCharge.new.units_0_30} x ${numberOfUnits}`);
+
   } else if (numberOfUnits < block_60) {
     totals2.new = block_30 * energyCharge.new.units_0_30 + (numberOfUnits - block_30) * energyCharge.new.units_31_60;
+    log.value.push(`New Energy Charge 60: ${block_30} x Rs.${energyCharge.new.units_0_30} + ${numberOfUnits - block_30} x Rs.${energyCharge.new.units_31_60}`);
+
   } else if (numberOfUnits < block_90) {
     totals2.new = block_60 * energyCharge.new.units_0_60 + (numberOfUnits - block_60) * energyCharge.new.units_61_90;
+    log.value.push(`New Energy Charge 90: ${block_60} x Rs.${energyCharge.new.units_0_60} + ${numberOfUnits - block_60} x Rs.${energyCharge.new.units_61_90}`);
+
   } else if (numberOfUnits < block_120) {
-    totals2.new = block_60 * energyCharge.new.units_0_60 + block_30 * energyCharge.new.units_61_90 + (numberOfUnits - block_90) * energyCharge.new.units_91_120;
-  } else if (numberOfUnits < 180) {
-    totals2.new = block_60 * energyCharge.new.units_0_60 + block_30 * energyCharge.new.units_61_90 + block_30 * energyCharge.new.units_91_120 + (numberOfUnits - block_120) * energyCharge.new.units_121_180;
+
+    totals2.new = block_60 * energyCharge.new.units_0_60 + (block_90 - block_60) * energyCharge.new.units_61_90 + (numberOfUnits - block_90) * energyCharge.new.units_91_120;
+    log.value.push(`New Energy Charge 120: ${block_60} x Rs.${energyCharge.new.units_0_60} + ${block_90 - block_60} x Rs.${energyCharge.new.units_61_90} + ${(numberOfUnits - block_90)} x Rs.${energyCharge.new.units_91_120}`);
+
+  } else if (numberOfUnits < block_180) {
+    totals2.new = block_60 * energyCharge.new.units_0_60 + (block_90 - block_60) * energyCharge.new.units_61_90 + (block_120 - block_90) * energyCharge.new.units_91_120 + (numberOfUnits - block_120) * energyCharge.new.units_121_180;
+    log.value.push(`New Energy Charge 180: ${block_60} x Rs.${energyCharge.new.units_0_60} + ${block_90 - block_60} x Rs.${energyCharge.new.units_61_90} + ${(numberOfUnits - block_90)} x Rs.${energyCharge.new.units_91_120} + ${(numberOfUnits - block_120)} x Rs.${energyCharge.new.units_121_180}`);
+
   } else {
-    totals2.new = block_60 * energyCharge.new.units_0_60 + block_30 * energyCharge.new.units_61_90 + block_30 * energyCharge.new.units_91_120 + block_60 * energyCharge.new.units_121_180 + (numberOfUnits - block_180) * energyCharge.new.units_181;
+    totals2.new = block_60 * energyCharge.new.units_0_60 + (block_90 - block_60) * energyCharge.new.units_61_90 + (block_120 - block_90) * energyCharge.new.units_91_120 + (block_180 - block_120) * energyCharge.new.units_121_180 + (numberOfUnits - block_180) * energyCharge.new.units_181;
+    log.value.push(`New Energy Charge 180+: ${block_60} x Rs.${energyCharge.new.units_0_60} + ${block_90 - block_60} x Rs.${energyCharge.new.units_61_90} + ${(block_120 - block_90)} x Rs.${energyCharge.new.units_91_120} + ${(block_180 - block_120)} x Rs.${energyCharge.new.units_121_180} + ${(numberOfUnits - block_180)} x ${energyCharge.new.units_181}`);
   }
   return totals2;
 }
 
-function calculateElecBillOld() {
-  const dateDiff = differenceInDays(new Date(dateValue.value[0]), new Date("2023 Feb 15"));
 
-  if (dateDiff == 0) {
+function calculateFinalBill() {
+
+  const dateDiffFromFeb15th = differenceInDays(new Date(dateValue.value[0]), new Date("2023 Feb 14"));
+
+  console.log({ dateDiffFromFeb15th })
+  if (dateDiffFromFeb15th <= 0) {
     const numberOfUnits = units.value;
-    units2.value = numberOfUnits;
 
-    const numberOfDays = differenceInDays(new Date(dateValue.value[1]), new Date(dateValue.value[0]));
+    const numberOfDaysTill15th = differenceInDays(new Date("2023 Feb 14"), new Date(dateValue.value[0]));
+    const numberOfDaysFrom15th = differenceInDays(new Date(dateValue.value[1]), new Date("2023 Feb 14"));
+    const totalNumberOfDays = numberOfDaysTill15th + numberOfDaysFrom15th;
 
-    const fixCharge = calculateFixCharge(numberOfUnits, numberOfDays);
-    const unitCharge = calculateEnergyCharge(numberOfUnits, numberOfDays);
+    const fixCharge = calculateFixCharge(numberOfUnits, totalNumberOfDays);
+    const unitCharge = calculateEnergyCharge(numberOfUnits, totalNumberOfDays);
 
-    //montly adjesment
+    const dailyConsumption = numberOfUnits / totalNumberOfDays;
+    const monthlyConsumption = dailyConsumption * 30;
+
+    const unitChargePerviousTariff = calculateEnergyCharge(Math.ceil(dailyConsumption * numberOfDaysTill15th), numberOfDaysTill15th);
+
+    const fixChargeNewTariff = calculateFixCharge(monthlyConsumption, 30);
+
+    const unitChargeNewTariff = calculateEnergyCharge((Math.floor(dailyConsumption * numberOfDaysFrom15th)), numberOfDaysFrom15th);
 
     applicableFixedCharge.previous = fixCharge.previous;
-    applicableFixedCharge.current = fixCharge.current;
-    applicableFixedCharge.new = fixCharge.new;
-
     applicableEnergyCharge.previous = unitCharge.previous;
-    applicableEnergyCharge.current = unitCharge.current;
-    applicableEnergyCharge.new = unitCharge.new;
-
     totalsBeforeTaxes.previous = applicableFixedCharge.previous + applicableEnergyCharge.previous;
+
+    applicableFixedCharge.current = fixCharge.current;
+    applicableEnergyCharge.current = unitCharge.current;
     totalsBeforeTaxes.current = applicableFixedCharge.current + applicableEnergyCharge.current;
+
+    //before 15th, old tariff should apply
+    applicableFixedCharge.new = applicableFixedCharge.current * numberOfDaysTill15th / 30 + fixChargeNewTariff.new * numberOfDaysFrom15th / 30;
+
+
+    applicableEnergyCharge.new = unitChargePerviousTariff.current + unitChargeNewTariff.new;
+
     totalsBeforeTaxes.new = applicableFixedCharge.new + applicableEnergyCharge.new;
 
     totals.previous = totalsBeforeTaxes.previous;
     totals.current = totalsBeforeTaxes.current + totalsBeforeTaxes.current * 2.5 / 97.5;
     totals.new = totalsBeforeTaxes.new + totalsBeforeTaxes.new * 2.5 / 97.5;
 
-
     presentageInc.previous = ((totals.new - totals.previous) * 100 / totals.previous).toFixed(0);
     presentageInc.now = ((totals.new - totals.current) * 100 / totals.current).toFixed(0);
 
-
+    console.log(log.value)
   } else {
-    calculateElecBillNew();
+    calculateElecBill();
   }
+}
 
+function calculateElecBill() {
+
+
+  const numberOfUnits = units.value;
+  //old and new
+
+  const numberOfDays = differenceInDays(new Date(dateValue.value[1]), new Date(dateValue.value[0]));
+
+  const fixCharge = calculateFixCharge(numberOfUnits, numberOfDays);
+  const unitCharge = calculateEnergyCharge(numberOfUnits, numberOfDays);
+
+  //montly adjesment
+
+  applicableFixedCharge.previous = fixCharge.previous;
+  applicableFixedCharge.current = fixCharge.current;
+  applicableFixedCharge.new = fixCharge.new;
+
+  applicableEnergyCharge.previous = unitCharge.previous;
+  applicableEnergyCharge.current = unitCharge.current;
+  applicableEnergyCharge.new = unitCharge.new;
+
+  totalsBeforeTaxes.previous = applicableFixedCharge.previous + applicableEnergyCharge.previous;
+  totalsBeforeTaxes.current = applicableFixedCharge.current + applicableEnergyCharge.current;
+  totalsBeforeTaxes.new = applicableFixedCharge.new + applicableEnergyCharge.new;
+
+  totals.previous = totalsBeforeTaxes.previous;
+  totals.current = totalsBeforeTaxes.current + totalsBeforeTaxes.current * 2.5 / 97.5;
+  totals.new = totalsBeforeTaxes.new + totalsBeforeTaxes.new * 2.5 / 97.5;
+
+
+  presentageInc.previous = ((totals.new - totals.previous) * 100 / totals.previous).toFixed(0);
+  presentageInc.now = ((totals.new - totals.current) * 100 / totals.current).toFixed(0);
 }
 
 
@@ -778,7 +862,6 @@ function calculateElecBillNew() {
   totals.previous = totalsBeforeTaxes.previous;
   totals.current = totalsBeforeTaxes.current + totalsBeforeTaxes.current * 2.5 / 97.5;
   totals.new = totalsBeforeTaxes.new + totalsBeforeTaxes.new * 2.5 / 97.5;
-
 
   presentageInc.previous = ((totals.new - totals.previous) * 100 / totals.previous).toFixed(0);
   presentageInc.now = ((totals.new - totals.current) * 100 / totals.current).toFixed(0);

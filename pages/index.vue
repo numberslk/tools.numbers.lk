@@ -49,34 +49,52 @@ const copyBash = () => {
 <template>
   <PageWrapper>
     <PageHeader>
-      <PageTitle :text="$t('pages.setting.title')" class="capitalize" />
+      <PageTitle :text="$t('pages.index.title')" class="px-4" />
     </PageHeader>
-    <PageBody>
-      <PageSection class="flex items-center flex-1">
-        <section class="py-10 bg-gray-50 sm:py-16 lg:py-24">
-          <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-            <div class="max-w-2xl mx-auto text-center">
-              <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Numbers.lk tools</h2>
-              <p class="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">Tools that come up with
-                numbers.lk
-                team
-              </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-6 mt-12 lg:mt-16 xl:gap-10 sm:grid-cols-2 lg:grid-cols-3">
-              <AppCard path="/electricityBillCalculator"></AppCard>
-              <AppCard path="/waterBillCalculator"></AppCard>
-              <AppCard class=""></AppCard>
-            </div>
-
-
-            <div class="mt-12 text-center">
-              <a href="#" title=""
-                class="inline-flex p-3 font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
-                Check all 1,593 applications </a>
-            </div>
-          </div>
-        </section>
+    <PageBody class="px-3">
+      <PageSection class="flex flex-col items-center md:flex-row">
+        <Card class="m-4">
+          <CardContent>
+            <CardTitle class="capitalize" :text="$t('pages.setting.sections.validate_username.title')" />
+            <p class="mb-2">
+              {{ $t('pages.setting.sections.validate_username.description') }}
+            </p>
+          </CardContent>
+          <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+            <!-- <p>
+                        {{ $t('pages.setting.sections.validate_username.footer') }}
+                        <Anchor class="font-bold underline capitalize" :text="
+                          $t(
+                            'pages.setting.sections.validate_username.footer_link'
+                          )
+                        " href="https://tools.numbers.lk/electricity-bill-calculator" />
+                      </p> -->
+            <Button class="capitalize" to="/electricity-bill-calculator" size="sm" type="opposite" :text="
+              $t(
+                'pages.index.open'
+              )" />
+          </CardFooter>
+        </Card>
+        <Card class="m-6">
+          <CardContent>
+            <CardTitle class="capitalize" :text="$t('pages.setting.sections.validate_username.title')" />
+            <p class="mb-2">
+              {{
+                $t('pages.setting.sections.validate_username.description')
+              }}
+            </p>
+          </CardContent>
+          <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+            <!-- <p>
+                        {{ $t('pages.setting.sections.validate_username.footer') }}
+                        <Anchor class="font-bold underline capitalize" :text="
+                          $t('pages.setting.sections.validate_username.footer_link')
+                        " href="https://tools.numbers.lk/water-bill-calculator" />
+                      </p> -->
+            <Button class="capitalize" size="sm" to="/water-bill-calculator" type="opposite"
+              :text="$t('pages.index.open')" />
+          </CardFooter>
+        </Card>
       </PageSection>
     </PageBody>
   </PageWrapper>

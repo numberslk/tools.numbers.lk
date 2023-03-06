@@ -9,7 +9,7 @@ const date = ref(new Date().getFullYear())
 
 <template>
   <footer
-    class="relative bottom-0 pt-16 pb-6 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-800 font-atkinson">
+    class="relative bottom-0 pt-16 pb-6 bg-slate-100 text-slate-800 dark:text-slate-100 dark:bg-slate-800 font-atkinson">
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap">
         <div class="w-full px-4 lg:w-6/12">
@@ -42,15 +42,15 @@ const date = ref(new Date().getFullYear())
           </a>
           <!-- <a
               class="items-center justify-center w-10 h-10 mr-2 font-normal text-gray-900 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
-                          href="https://github.com/numbers.lk"
-                          target="_blank"
-                          type="button"
-                        >
-                          <font-awesome-icon
-                            class="mt-3 ml-3"
-                            :icon="{ prefix: 'fab', iconName: 'github' }"
-                          />
-                        </a> -->
+                              href="https://github.com/numbers.lk"
+                              target="_blank"
+                              type="button"
+                            >
+                              <font-awesome-icon
+                                class="mt-3 ml-3"
+                                :icon="{ prefix: 'fab', iconName: 'github' }"
+                              />
+                            </a> -->
           </div>
         </div>
       </div>

@@ -5,8 +5,12 @@ components:
     theme: theme
     change_theme: change theme
 pages:
+  home:
+    nav: Home
+    title: home
   index:
-    title: nuxt 3[]awesome[]starter
+    title: numbers.lk tools
+    open: open
   404:
     title: page not found
   electricity-bill-calculator:
@@ -15,18 +19,57 @@ pages:
     description: Electricity Bill Calculator by numbers.lk
     tabs:
       domestic: Domestic
+      domesticTOU: Domestic TOU
+      industrial: Industrial
+      general: General Purpose
     headings:
       title: Calculate Your Electricity Bill
-      description: Enter your monthly consumption and your bill period to generate bill.
+      description: Enter your monthly consumption and your bill period to generate the bill.
+      note: New tariff change came in to effect on Feb 15, 2023. Therefore Feb 2023 bill considers both old and new tariffs
+    other:
+      units: Units
+      period: Period
+      tariff: tariff
+      fixed_charge: Fixed Charge
+      energy_charge: Energy Charge
+      total_before_tax: Total Before Tax
+      total_with_tax: Total With Tax
+      included: included
+      new_total_bill: New Total Bill
+      tariff_before: Tariff Before Sep 2022
+      tariff_current: Tariff Sep 2022 - Feb 2023
+      tariff_now: Tariff From Feb 2023
+      since_feb: Since Feb 2023
+      since_sep: Since Sep 2022
   water-bill-calculator:
     nav: Water Bill Calculator
     title: Water Bill Calculator
     description: Water Bill Calculator by numbers.lk
     tabs:
       domestic: Domestic
+      domesticTOU: Domestic TOU
+      industrial: Industrial
+      general: General Purpose
     headings:
       title: Calculate Your Electricity Bill
-      description: Enter your monthly consumption and your bill period to generate bill.
+      description: Enter your monthly consumption and your bill period to generate the bill.
+      note: New tariff change came in to effect on Feb 15, 2023. Therefore Feb 2023 bill considers both old and new tariffs
+    other:
+      units: Units
+      period: Period
+      tariff: tariff
+      fixed_charge: Fixed Charge
+      energy_charge: Energy Charge
+      total_before_tax: Total Before Tax
+      total_with_tax: Total With Tax
+      included: included
+      new_total_bill: New Total Bill
+      tariff_before: Tariff Before Sep 2022
+      tariff_current: Tariff Sep 2022 - Feb 2023
+      tariff_now: Tariff From Feb 2023
+      since_feb: Since Feb 2023
+      since_sep: Since Sep 2022
+      type: Type
   setting:
     nav: setting
     title: setting
@@ -62,6 +105,7 @@ banners:
   welcome: hello, welcome to %{app_name}!
 others:
   learn_more: learn more
+  comming_soon: Comming Soon
   copy: copy
   calculate: Calculate
   enabled: enabled

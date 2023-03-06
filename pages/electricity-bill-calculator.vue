@@ -5,12 +5,12 @@
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="mb-6" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              class="mb-6" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
-      <PageTitle :text="$t('pages.electricity-bill-calculator.title')" class="capitalize" />
+      <PageTitle :text="$t('pages.electricity-bill-calculator.title')" class="pt-2 capitalize" />
     </PageHeader>
     <PageBody>
       <PageSection>
@@ -18,7 +18,7 @@
           <TabList class="flex w-full mb-2 rounded-lg md:w-1/6 md:flex-col">
             <HeadlessUiTab v-slot="{ selected }" as="template">
               <button :class="[
-                'md:w-full text-left px-3 py-1.5 rounded py-2.5 text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
+                'md:w-full text-left px-3 py-1.5 rounded  text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
                 selected
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
@@ -28,22 +28,32 @@
             </HeadlessUiTab>
             <HeadlessUiTab v-slot="{ selected }" as="template">
               <button :class="[
-                'md:w-full text-left px-3 py-1.5 rounded py-2.5 text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
+                'md:w-full text-left px-3 py-1.5 rounded  text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
                 selected
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
               ]">
-                Industrial
+                {{ $t('pages.electricity-bill-calculator.tabs.domesticTOU') }}
               </button>
             </HeadlessUiTab>
             <HeadlessUiTab v-slot="{ selected }" as="template">
               <button :class="[
-                'md:w-full text-left px-3 py-1.5 rounded py-2.5 text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
+                'md:w-full text-left px-3 py-1.5 rounded  text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
                 selected
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
               ]">
-                General Purpose
+                {{ $t('pages.electricity-bill-calculator.tabs.industrial') }}
+              </button>
+            </HeadlessUiTab>
+            <HeadlessUiTab v-slot="{ selected }" as="template">
+              <button :class="[
+                'md:w-full text-left px-3 py-1.5 rounded  text-sm leading-5 transition-all hover:bg-gray-200 hover:text-slate-900 dark:hover:bg-white/[0.12] dark:hover:text-white',
+                selected
+                  ? 'font-extrabold'
+                  : 'text-slate-800 dark:text-gray-400',
+              ]">
+                {{ $t('pages.electricity-bill-calculator.tabs.general') }}
               </button>
             </HeadlessUiTab>
           </TabList>
@@ -52,7 +62,7 @@
               <Card class="mb-4">
                 <CardContent>
                   <CardTitle class="capitalize" :text="$t('pages.electricity-bill-calculator.headings.title')" />
-                  <p class="mb-2">
+                  <p class="mb-4 leading-snug">
                     {{
                       $t('pages.electricity-bill-calculator.headings.description')
                     }}
@@ -62,18 +72,23 @@
                     <div class="relative flex w-full mb-2 lg:mb-0">
                       <FormTextInput v-model="units" class="w-full">
                         <template #prefix-disabled>
-                          <span class="flex-1 px-4 py-2">Units</span>
+                          <span class="flex-1 px-4 py-2"> {{
+                            $t('pages.electricity-bill-calculator.other.units')
+                          }}</span>
                         </template>
                       </FormTextInput>
                     </div>
 
                     <div class="relative flex w-full mb-2 md:mb-0">
                       <div
-                        class="flex text-gray-500 border border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
-                        <span class="flex-1 px-4 py-2">Period</span>
+                        class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
+                        <span class="flex-1 px-2 py-2"><span class="flex-1 px-2 py-2"> {{
+                          $t('pages.electricity-bill-calculator.other.period')
+                        }}</span></span>
                       </div>
                       <vue-tailwind-datepicker :formatter="formatter" separator=" to "
-                        class="z-50 w-full bg-transparent rounded-none rounded-r-md" v-model="dateValue" />
+                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
+                        v-model="dateValue" />
                     </div>
 
                     <Button type="opposite" @click="calculateFinalBill" placeholder="Enter number of Units"
@@ -81,29 +96,36 @@
                       <icon-ic:baseline-calculate />
                       <span>{{ $t('others.calculate') }}</span>
                     </Button>
+                    <MobileTopFixAd2 class="flex items-center justify-center mt-0 text-center md:hidden md:space-x-2" />
                   </div>
                   <div class="flex flex-col mt-2 h-4/6">
                     <!-- Table -->
                     <div
                       class="w-full  bg-white dark:bg-slate-800 border-t border-gray-900/10 dark:border-gray-50/[0.2] border border-gray-200 rounded-sm">
-                      <div class="p-3 overflow-x-auto border-b-2 border-gray-100">
+                      <div class="p-2 overflow-x-auto border-b-2 border-gray-100">
                         <table class="w-full table-auto">
                           <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50 dark:bg-slate-700">
                             <tr>
-                              <th class="p-2">
-                                <div class="font-semibold text-left">Charge</div>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">
+                                  {{ $t('pages.electricity-bill-calculator.other.tariff') }}</div>
                               </th>
-                              <th class="p-2">
-                                <div class="font-semibold text-left">Fixed Charge</div>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.electricity-bill-calculator.other.fixed_charge') }}</div>
                               </th>
-                              <th class="p-2">
-                                <div class="font-semibold text-left">Energy Charge</div>
-                              </th>
-                              <th class="p-2">
-                                <div class="font-semibold text-left">Total Before Tax</div>
-                              </th>
-                              <th class="p-2">
-                                <div class="font-semibold text-left">Total</div>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.electricity-bill-calculator.other.energy_charge') }}</div>
+                            </th>
+                            <!-- <th class="p-1">
+                                                                                                                                                                                                        <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                      </th> -->
+                              <th class="p-1 align-text-top">
+                                <div class="font-medium text-left">{{
+                                  $t('pages.electricity-bill-calculator.other.total_before_tax') }}</div>
+                                <div class="inline-block float-left font-semibold">
+                                  {{ $t('pages.electricity-bill-calculator.other.total_with_tax') }}</div>
                               </th>
                             </tr>
                           </thead>
@@ -111,33 +133,36 @@
                           <tbody class="text-sm text-gray-800 divide-y divide-gray-100 dark:text-gray-100">
                             <!-- Previous -->
                             <tr>
-                              <td class="w-3/12 p-2">
+                              <td class="w-3/12 p-1 align-text-top">
                                 <div class="font-medium">
-                                  Previous Tariff: Before 2022 Aug
+                                  {{ $t('pages.electricity-bill-calculator.other.tariff_before') }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                              <td class="w-2/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">{{
                                   applicableFixedCharge.previous.toFixed(2)
                                 }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                              <td class="w-2/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ (applicableEnergyCharge.previous).toFixed(2) }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                      </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
                                 </div>
-                              </td>
-
-                              <td class="w-3/12 p-2">
-                                <div class="text-base font-medium text-left md:text-lg">
+                                <div class="text-base font-semibold text-left md:text-lg">
                                   {{ totals.previous.toFixed(2) }}
                                 </div>
                               </td>
@@ -145,33 +170,36 @@
                             <!-- Current Bill -->
                             <tr>
 
-                              <td class="w-2/12 p-2">
-                                <div class="font-medium text-blue-400">
-                                  Current Tariff: 2022 Aug - 2023 Feb
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.electricity-bill-calculator.other.tariff_current') }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
-                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">{{
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
                                   applicableFixedCharge.current.toFixed(2)
                                 }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
-                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
                                   {{ (applicableEnergyCharge.current).toFixed(2) }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                            <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.current).toFixed(2) }}
-                                </div>
-                              </td>
+                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                                        </td> -->
 
-                              <td class="w-3/12 p-2">
-                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
                                 <p class="text-xs font-medium text-gray-400">*2.5% SSCL included</p>
@@ -179,36 +207,40 @@
                             </tr>
                             <tr>
 
-                              <td class="w-3/12 p-2">
+                              <td class="w-3/12 p-1 align-text-top">
                                 <div class="font-medium">
-                                  Proposed Tariff: from 2023 Feb
+                                  {{ $t('pages.electricity-bill-calculator.other.tariff_now') }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                              <td class="w-2/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">{{
                                   applicableFixedCharge.new.toFixed(2)
                                 }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                              <td class="w-2/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ (applicableEnergyCharge.new).toFixed(2) }}
                                 </div>
                               </td>
 
-                              <td class="w-2/12 p-2">
+                            <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                </div>
-                              </td>
+                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                                        </td> -->
 
-                              <td class="w-3/12 p-2">
+                              <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
                                   {{ totals.new.toFixed(2) }}
                                 </div>
-                                <p class="text-xs font-medium text-gray-400">*2.5% SSCL included</p>
+                                <p class="text-xs font-medium text-gray-400">*2.5% SSCL {{
+                                  $t('pages.electricity-bill-calculator.other.included') }}</p>
                               </td>
                             </tr>
                             <!-- record 3 -->
@@ -219,7 +251,8 @@
                       <!-- total amount -->
                       <div class="float-right">
                         <div class="flex flex-row w-full px-4 pt-1 text-sm font-bold">
-                          <div class="mr-2 text-base text-red-400">New Total Bill</div>
+                          <div class="mr-2 text-base text-red-400"> {{
+                            $t('pages.electricity-bill-calculator.other.new_total_bill') }}</div>
                         </div>
 
                         <div class="flex flex-row w-full px-4 pt-1 pb-4 space-x-2 text-sm font-bold">
@@ -231,7 +264,8 @@
                                   maximumFractionDigits: 2,
                                   currency: "LKR"
                                 }).format(totals.new) }}</div>
-                              <p class="text-xs font-medium text-gray-400">*2.5% SSCL included</p>
+                              <p class="text-xs font-medium text-gray-400">*2.5% SSCL {{
+                                $t('pages.electricity-bill-calculator.other.included') }}</p>
                             </div>
                           </div>
 
@@ -252,7 +286,8 @@
                                   </span>
                                   <span
                                     class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
-                                    Since 2023 Feb
+                                    {{
+                                      $t('pages.electricity-bill-calculator.other.since_feb') }}
                                   </span>
                                 </div>
                               </div>
@@ -272,7 +307,8 @@
                                   </span>
                                   <span
                                     class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
-                                    Since 2022 Aug
+                                    {{
+                                      $t('pages.electricity-bill-calculator.other.since_sep') }}
                                   </span>
                                 </div>
                               </div>
@@ -282,44 +318,16 @@
                       </div>
                     </div>
                   </div>
-              </CardContent>
-              <!-- <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
-                                                                                                            <p>
-                                                                                                              {{ $t('pages.setting.sections.validate_username.footer') }}
-                                                                                                              <Anchor class="font-bold underline capitalize" :text="
-                                                                                                                $t(
-                                                                                                                  'pages.setting.sections.validate_username.footer_link'
-                                                                                                                )
-                                                                                                              " href="https://docs.github.com/en/rest/users/users#get-a-user" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </CardFooter> -->
-              </Card>
-            </TabPanel>
-            <TabPanel>
-              <Card :class="{
-                'mb-4': true,
-                'border-red-500 dark:border-red-500': !enableSpamProtection,
-              }">
-                <CardContent>
-                  <CardTitle class="capitalize" :text="$t('pages.setting.sections.protection_spam.title')" />
-                  <p class="mb-2">
-                    {{
-                      $t('pages.setting.sections.protection_spam.description')
-                    }}
-                  </p>
-                  <div class="flex">
-                    <FormSwitch v-model="enableSpamProtection">
-                      <span class="capitalize">{{
-                        enableSpamProtection
-                        ? $t('others.enabled')
-                        : $t('others.disabled')
-                      }}</span>
-                    </FormSwitch>
-                  </div>
                 </CardContent>
-                <CardFooter class="justify-between">
+                <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
                   <p>
-                    {{ $t('pages.setting.sections.protection_spam.footer') }}
+                  *{{ $t('pages.electricity-bill-calculator.headings.note') }}
+                  <!-- <Anchor class="font-bold underline capitalize" :text="
+                      $t(
+                        'pages.setting.sections.validate_username.footer_link'
+                      )
+                                                                                                                                                                                  "
+                                                                                                                                                                                    href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -329,48 +337,31 @@
                 <CardContent>
                   <CardTitle class="capitalize" :text="
                     $t(
-                      'pages.setting.sections.advanced_enable_advanced.title'
+                      'others.comming_soon'
                     )
                   " />
-                  <p class="mb-2">
-                    {{
-                      $t(
-                        'pages.setting.sections.advanced_enable_advanced.description'
-                      )
-                    }}
-                  </p>
-                  <div class="flex">
-                    <FormSwitch v-model="enableAdvancedSetting">
-                      <span class="capitalize">{{
-                        enableAdvancedSetting
-                        ? $t('others.enabled')
-                        : $t('others.disabled')
-                      }}</span>
-                    </FormSwitch>
-                  </div>
                 </CardContent>
               </Card>
-              <Card class="mb-4" :disabled="!enableAdvancedSetting">
+            </TabPanel>
+            <TabPanel>
+              <Card class="mb-4">
                 <CardContent>
                   <CardTitle class="capitalize" :text="
-                    $t('pages.setting.sections.advanced_dir_listing.title')
+                    $t(
+                      'others.comming_soon'
+                    )
                   " />
-                  <p class="mb-2">
-                    {{
-                      $t(
-                        'pages.setting.sections.advanced_dir_listing.description'
-                      )
-                    }}
-                  </p>
-                  <div class="flex">
-                    <FormSwitch v-model="enableDirList" on>
-                      <span class="capitalize">{{
-                        enableDirList
-                        ? $t('others.enabled')
-                        : $t('others.disabled')
-                      }}</span>
-                    </FormSwitch>
-                  </div>
+                </CardContent>
+              </Card>
+            </TabPanel>
+            <TabPanel>
+              <Card class="mb-4">
+                <CardContent>
+                  <CardTitle class="capitalize" :text="
+                    $t(
+                      'others.comming_soon'
+                    )
+                  " />
                 </CardContent>
               </Card>
             </TabPanel>
@@ -398,6 +389,7 @@ import { differenceInDays } from "date-fns"
 
 import TallAd from "~/components/TallAd.vue"
 import MobileTopFixAd from "~/components/MobileTopFixAd.vue"
+import MobileTopFixAd2 from "~/components/MobileTopFixAd2.vue"
 import PageTopAd from "~/components/PageTopAd.vue"
 
 import ByLine from '~/components/ByLine.vue';
@@ -597,7 +589,7 @@ const units2 = ref(0)
 
 function calculateFixCharge(numberOfUnits: number, numberOfDays: number) {
 
-  const numberOfUnitsPer30Days = numberOfUnits * (30 / numberOfDays);
+  const numberOfUnitsPer30Days = Math.abs(numberOfUnits) * (30 / Math.abs(numberOfDays));
 
   let applicableFixedCharge2 = {
     previous: 0,
@@ -632,25 +624,25 @@ function calculateFixCharge(numberOfUnits: number, numberOfDays: number) {
   }
 
   //montly adjesment
-  // if (numberOfDays < 54) {
-  applicableFixedCharge2.previous = applicableFixedCharge2.previous;
-  applicableFixedCharge2.current = applicableFixedCharge2.current;
-  applicableFixedCharge2.new = applicableFixedCharge2.new;
+  if (numberOfDays < 54) {
+    applicableFixedCharge2.previous = applicableFixedCharge2.previous;
+    applicableFixedCharge2.current = applicableFixedCharge2.current;
+    applicableFixedCharge2.new = applicableFixedCharge2.new;
 
-  log.value.push(`Fixed Charge: ${applicableFixedCharge2.previous}`)
-  log.value.push(`Fixed Charge: ${applicableFixedCharge2.current}`)
-  log.value.push(`Fixed Charge: ${applicableFixedCharge2.new}`)
+    log.value.push(`Fixed Charge: ${applicableFixedCharge2.previous}`)
+    log.value.push(`Fixed Charge: ${applicableFixedCharge2.current}`)
+    log.value.push(`Fixed Charge: ${applicableFixedCharge2.new}`)
 
-  // } else {
-  //   applicableFixedCharge2.previous = applicableFixedCharge2.previous * numberOfDays / 30;
-  //   applicableFixedCharge2.current = applicableFixedCharge2.current * numberOfDays / 30;
-  //   applicableFixedCharge2.new = applicableFixedCharge2.new * numberOfDays / 30;
+  } else {
+    applicableFixedCharge2.previous = applicableFixedCharge2.previous * numberOfDays / 30;
+    applicableFixedCharge2.current = applicableFixedCharge2.current * numberOfDays / 30;
+    applicableFixedCharge2.new = applicableFixedCharge2.new * numberOfDays / 30;
 
-  //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.previous} x ${numberOfDays} / 30`);
-  //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.current} x ${numberOfDays} / 30`);
-  //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.new} x ${numberOfDays} / 30`);
+    //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.previous} x ${numberOfDays} / 30`);
+    //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.current} x ${numberOfDays} / 30`);
+    //   log.value.push(`Fixed Charge: ${applicableFixedCharge2.new} x ${numberOfDays} / 30`);
 
-  // }
+  }
 
   return applicableFixedCharge2;
 
@@ -746,13 +738,13 @@ function calculateEnergyCharge(numberOfUnits: number, numberOfDays: number) {
   return totals2;
 }
 
-
 function calculateFinalBill() {
 
   const dateDiffFromFeb15th = differenceInDays(new Date(dateValue.value[0]), new Date("2023 Feb 14"));
+  const dateDiffSinceFeb15th = differenceInDays(new Date(dateValue.value[1]), new Date("2023 Feb 14"));
 
-  console.log({ dateDiffFromFeb15th })
-  if (dateDiffFromFeb15th <= 0) {
+
+  if ((dateDiffFromFeb15th <= 0) && !(dateDiffSinceFeb15th <= 0)) {
     const numberOfUnits = units.value;
 
     const numberOfDaysTill15th = differenceInDays(new Date("2023 Feb 14"), new Date(dateValue.value[0]));
@@ -767,7 +759,7 @@ function calculateFinalBill() {
 
     const unitChargePerviousTariff = calculateEnergyCharge(Math.ceil(dailyConsumption * numberOfDaysTill15th), numberOfDaysTill15th);
 
-    const fixChargeNewTariff = calculateFixCharge(monthlyConsumption, 30);
+    const fixChargeNewTariff = calculateFixCharge(monthlyConsumption, totalNumberOfDays);
 
     const unitChargeNewTariff = calculateEnergyCharge((Math.floor(dailyConsumption * numberOfDaysFrom15th)), numberOfDaysFrom15th);
 
@@ -801,7 +793,6 @@ function calculateFinalBill() {
 }
 
 function calculateElecBill() {
-
 
   const numberOfUnits = units.value;
   //old and new

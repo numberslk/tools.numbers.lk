@@ -1,23 +1,22 @@
 <template>
   <div>
-    <!-- Tall Ad -->
-    <ins class="m-1 adsbygoogle" style="display:inline-block;width:120px;height:768px"
-      data-ad-client="ca-pub-9851193750585592" :data-ad-slot="adSlot" />
+    <!-- mobile.fixed.top ad -->
+    <ins class="adsbygoogle" style="height:60px !important; " data-ad-client="ca-pub-9851193750585592"
+      :data-ad-slot="adSlot" data-ad-format="auto" data-full-width-responsive="true" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TallAd',
+  name: 'MobileTopFixAd2',
   components: {},
 
   props: {
     adSlot: {
       type: String,
-      default: '6866354814',
+      default: '5669318054',
     },
   },
-
   data() {
     return {
       googleInit: null,

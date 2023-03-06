@@ -50,17 +50,16 @@ const toggleOptions = (show?: boolean) => {
 
 <template>
   <div ref="navbar"
-    class="backdrop-filter backdrop-blur-md top-0 z-40 w-full flex-none transition-colors duration-300 lg:z-50 border-b border-gray-900/10 dark:border-gray-50/[0.2] bg-white/[0.5] dark:bg-slate-900/[0.5]">
+    class="font-atkinson backdrop-filter backdrop-blur-md top-0 z-40 w-full flex-none transition-colors duration-300 lg:z-50 border-b border-gray-900/10 dark:border-gray-50/[0.2] bg-white/[0.5] dark:bg-slate-900/[0.5]">
     <div id="navbar-banner" class="banner">
-      <slot name="banner" />
+      <!-- <slot name="banner" /> -->
     </div>
     <div class="w-full mx-auto max-w-8xl">
       <div class="py-3 mx-4 lg:px-8 lg:mx-0">
         <div class="relative flex items-center">
           <!-- drawer:toggle -->
           <div v-if="$slots['drawer']" class="flex items-center self-center justify-center mr-2 lg:hidden">
-            <button class="flex items-center focus:outline-none" aria-label="Toggle Drawer Menu"
-              @click="toggleDrawer()">
+            <button class="flex items-center focus:outline-none" aria-label="Toggle Drawer Menu" @click="toggleDrawer()">
               <span class="flex items-center text-lg text-gray-600 dark:text-gray-300" aria-hidden="true">
                 <IconUil:bars v-if="!showDrawer" />
                 <IconUil:times v-else />
@@ -76,15 +75,20 @@ const toggleOptions = (show?: boolean) => {
               <span class="flex items-center">
 
                 <img loading="lazy" src="../../assets/icons/icon.png"
-                  class="inline-block w-8 h-8 mr-1 text-lg text-primary-500" />
+                  class="inline-block w-8 h-8 mr-1.5 font-atkinson text-lg text-primary-500" />
                 {{ app.name }}
+                <span class="inline-block ml-1 text-lg font-semibold text-green-600"> tools.</span>
               </span>
+
             </NuxtLink>
           </slot>
           <!-- menu -->
           <slot name="menu" />
           <!-- options:toggle -->
           <div v-if="$slots['options']" class="flex justify-end flex-1 lg:hidden">
+            <div class="flex space-x-4 border-r mr-4 pr-4 border-gray-900/10 dark:border-gray-50/[0.2]">
+              <LanguageSwitcher />
+            </div>
             <button class="flex items-center focus:outline-none" aria-label="Toggle Options Menu"
               @click="toggleOptions()">
               <span class="flex items-center text-sm text-gray-600 dark:text-gray-300" aria-hidden="true">

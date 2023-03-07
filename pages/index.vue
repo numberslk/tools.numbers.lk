@@ -55,20 +55,20 @@ const copyBash = () => {
       <PageSection class="flex flex-col items-center md:flex-row">
         <Card class="m-4">
           <CardContent>
-            <CardTitle class="capitalize" :text="$t('pages.setting.sections.validate_username.title')" />
+            <CardTitle class="capitalize" :text="$t('pages.electricity-bill-calculator.title')" />
             <p class="mb-2">
               {{ $t('pages.setting.sections.validate_username.description') }}
             </p>
           </CardContent>
           <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
             <!-- <p>
-                        {{ $t('pages.setting.sections.validate_username.footer') }}
-                        <Anchor class="font-bold underline capitalize" :text="
-                          $t(
-                            'pages.setting.sections.validate_username.footer_link'
-                          )
-                        " href="https://tools.numbers.lk/electricity-bill-calculator" />
-                      </p> -->
+                                  {{ $t('pages.setting.sections.validate_username.footer') }}
+                                  <Anchor class="font-bold underline capitalize" :text="
+                                    $t(
+                                      'pages.setting.sections.validate_username.footer_link'
+                                    )
+                                  " href="https://tools.numbers.lk/electricity-bill-calculator" />
+                                </p> -->
             <Button class="capitalize" to="/electricity-bill-calculator" size="sm" type="opposite" :text="
               $t(
                 'pages.index.open'
@@ -77,7 +77,7 @@ const copyBash = () => {
         </Card>
         <Card class="m-6">
           <CardContent>
-            <CardTitle class="capitalize" :text="$t('pages.setting.sections.validate_username.title')" />
+            <CardTitle class="capitalize" :text="$t('pages.water-bill-calculator.title')" />
             <p class="mb-2">
               {{
                 $t('pages.setting.sections.validate_username.description')
@@ -86,11 +86,11 @@ const copyBash = () => {
           </CardContent>
           <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
             <!-- <p>
-                        {{ $t('pages.setting.sections.validate_username.footer') }}
-                        <Anchor class="font-bold underline capitalize" :text="
-                          $t('pages.setting.sections.validate_username.footer_link')
-                        " href="https://tools.numbers.lk/water-bill-calculator" />
-                      </p> -->
+                                  {{ $t('pages.setting.sections.validate_username.footer') }}
+                                  <Anchor class="font-bold underline capitalize" :text="
+                                    $t('pages.setting.sections.validate_username.footer_link')
+                                  " href="https://tools.numbers.lk/water-bill-calculator" />
+                                </p> -->
             <Button class="capitalize" size="sm" to="/water-bill-calculator" type="opposite"
               :text="$t('pages.index.open')" />
           </CardFooter>

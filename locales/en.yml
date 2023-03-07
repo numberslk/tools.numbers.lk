@@ -46,12 +46,12 @@ pages:
     title: Water Bill Calculator
     description: Water Bill Calculator by numbers.lk
     tabs:
+      samurdhi: Samurdhi
+      state: State
       domestic: Domestic
-      domesticTOU: Domestic TOU
-      industrial: Industrial
       general: General Purpose
     headings:
-      title: Calculate Your Electricity Bill
+      title: Calculate Your Water Bill
       description: Enter your monthly consumption and your bill period to generate the bill.
       note: New tariff change came in to effect on Feb 15, 2023. Therefore Feb 2023 bill considers both old and new tariffs
     other:

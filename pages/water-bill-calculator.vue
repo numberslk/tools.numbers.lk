@@ -5,16 +5,17 @@
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="mb-6" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  class="mb-6" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
-      <PageTitle :text="$t('pages.electricity-bill-calculator.title')" class="pt-2 capitalize" />
+      <PageTitle :text="$t('pages.water-bill-calculator.title')" class="pt-2 capitalize" />
     </PageHeader>
     <PageBody>
       <PageSection>
-        <TabGroup as="div" class="flex flex-col md:flex-row md:space-x-4" :vertical="screen.higherThan(Size.MEDIUM)">
+        <TabGroup as="div" @change="changeTab" :selectedIndex="selectedTab" class="flex flex-col md:flex-row md:space-x-4"
+          :vertical="screen.higherThan(Size.MEDIUM)">
           <TabList class="flex w-full mb-2 rounded-lg md:w-1/6 md:flex-col">
             <HeadlessUiTab v-slot="{ selected }" as="template">
               <button :class="[
@@ -23,7 +24,7 @@
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
               ]">
-                {{ $t('pages.electricity-bill-calculator.tabs.domestic') }}
+                {{ $t('pages.water-bill-calculator.tabs.samurdhi') }}
               </button>
             </HeadlessUiTab>
             <HeadlessUiTab v-slot="{ selected }" as="template">
@@ -33,7 +34,7 @@
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
               ]">
-                {{ $t('pages.electricity-bill-calculator.tabs.domesticTOU') }}
+                {{ $t('pages.water-bill-calculator.tabs.state') }}
               </button>
             </HeadlessUiTab>
             <HeadlessUiTab v-slot="{ selected }" as="template">
@@ -43,7 +44,7 @@
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
               ]">
-                {{ $t('pages.electricity-bill-calculator.tabs.industrial') }}
+                {{ $t('pages.water-bill-calculator.tabs.domestic') }}
               </button>
             </HeadlessUiTab>
             <HeadlessUiTab v-slot="{ selected }" as="template">
@@ -53,7 +54,7 @@
                   ? 'font-extrabold'
                   : 'text-slate-800 dark:text-gray-400',
               ]">
-                {{ $t('pages.electricity-bill-calculator.tabs.general') }}
+                {{ $t('pages.water-bill-calculator.tabs.general') }}
               </button>
             </HeadlessUiTab>
           </TabList>
@@ -61,10 +62,13 @@
             <TabPanel>
               <Card class="mb-4">
                 <CardContent>
-                  <CardTitle class="capitalize" :text="$t('pages.electricity-bill-calculator.headings.title')" />
+                  <CardTitle class="inline-block pr-2 capitalize"
+                    :text="$t('pages.water-bill-calculator.headings.title')" />
+                  <CardTitle class="hidden text-blue-500 capitalize align-top md:inline-block">
+                    ({{ $t('pages.water-bill-calculator.tabs.samurdhi') }})</CardTitle>
                   <p class="mb-4 leading-snug">
                     {{
-                      $t('pages.electricity-bill-calculator.headings.description')
+                      $t('pages.water-bill-calculator.headings.description')
                     }}
                   </p>
                   <div class="flex flex-col lg:flex-row">
@@ -72,7 +76,7 @@
                       <FormTextInput v-model="enteredNumberOfUnits" class="w-full">
                         <template #prefix-disabled>
                           <span class="flex-1 px-4 py-2"> {{
-                            $t('pages.electricity-bill-calculator.other.units')
+                            $t('pages.water-bill-calculator.other.units')
                           }}</span>
                         </template>
                       </FormTextInput>
@@ -81,7 +85,7 @@
                       <div
                         class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
                         <span class="flex-1 px-4 py-2"><span class="flex-1 px-4 py-2"> {{
-                          $t('pages.electricity-bill-calculator.other.period')
+                          $t('pages.water-bill-calculator.other.period')
                         }}</span></span>
                       </div>
                       <vue-tailwind-datepicker :formatter="formatter" separator=" to "
@@ -106,24 +110,24 @@
                             <tr>
                               <th class="p-1">
                                 <div class="font-semibold text-left">
-                                  {{ $t('pages.electricity-bill-calculator.other.tariff') }}</div>
+                                  {{ $t('pages.water-bill-calculator.other.tariff') }}</div>
                               </th>
                               <th class="p-1">
                                 <div class="font-semibold text-left">{{
-                                  $t('pages.electricity-bill-calculator.other.fixed_charge') }}</div>
+                                  $t('pages.water-bill-calculator.other.fixed_charge') }}</div>
                               </th>
                               <th class="p-1">
                                 <div class="font-semibold text-left">{{
-                                  $t('pages.electricity-bill-calculator.other.energy_charge') }}</div>
+                                  $t('pages.water-bill-calculator.other.energy_charge') }}</div>
                             </th>
                             <!-- <th class="p-1">
-                                                                                                                                                                                                                                                                                  <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                                                                </th> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </th> -->
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
-                                  $t('pages.electricity-bill-calculator.other.total_before_tax') }}</div>
+                                  $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
                                 <div class="inline-block float-left font-semibold">
-                                  {{ $t('pages.electricity-bill-calculator.other.total_with_tax') }}</div>
+                                  {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
                               </th>
                             </tr>
                           </thead>
@@ -133,7 +137,7 @@
                             <tr>
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="font-medium">
-                                  {{ $t('pages.electricity-bill-calculator.other.tariff_before') }}
+                                  {{ $t('pages.water-bill-calculator.other.tariff_before') }}
                                 </div>
                               </td>
 
@@ -153,8 +157,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -170,7 +174,7 @@
 
                               <td class="w-2/12 p-1 align-text-top">
                                 <div class="font-medium">
-                                  {{ $t('pages.electricity-bill-calculator.other.tariff_current') }}
+                                  {{ $t('pages.water-bill-calculator.other.tariff_current') }}
                                 </div>
                               </td>
 
@@ -190,8 +194,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.current).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                  </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -200,14 +204,14 @@
                                 <div class="text-base font-semibold text-left md:text-lg">
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
-                                <p class="text-xs font-medium text-gray-400">*2.5% SSCL included</p>
+                                <p class="text-xs font-medium text-gray-400">15% VAT included</p>
                               </td>
                             </tr>
                             <tr>
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="font-medium">
-                                  {{ $t('pages.electricity-bill-calculator.other.tariff_now') }}
+                                  {{ $t('pages.water-bill-calculator.other.tariff_now') }}
                                 </div>
                               </td>
 
@@ -227,8 +231,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                  </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -237,8 +241,8 @@
                                 <div class="text-base font-semibold text-left md:text-lg">
                                   {{ totals.new.toFixed(2) }}
                                 </div>
-                                <p class="text-xs font-medium text-gray-400">*2.5% SSCL {{
-                                  $t('pages.electricity-bill-calculator.other.included') }}</p>
+                                <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                  $t('pages.water-bill-calculator.other.included') }}</p>
                               </td>
                             </tr>
                             <!-- record 3 -->
@@ -250,7 +254,7 @@
                       <div class="float-right">
                         <div class="flex flex-row w-full px-4 pt-1 text-sm font-bold">
                           <div class="mr-2 text-base text-red-400"> {{
-                            $t('pages.electricity-bill-calculator.other.new_total_bill') }}</div>
+                            $t('pages.water-bill-calculator.other.new_total_bill') }}</div>
                         </div>
 
                         <div class="flex flex-row w-full px-4 pt-1 pb-4 space-x-2 text-sm font-bold">
@@ -262,8 +266,8 @@
                                   maximumFractionDigits: 2,
                                   currency: "LKR"
                                 }).format(totals.new) }}</div>
-                              <p class="text-xs font-medium text-gray-400">*2.5% SSCL {{
-                                $t('pages.electricity-bill-calculator.other.included') }}</p>
+                              <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                $t('pages.water-bill-calculator.other.included') }}</p>
                             </div>
                           </div>
 
@@ -285,7 +289,7 @@
                                   <span
                                     class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
                                     {{
-                                      $t('pages.electricity-bill-calculator.other.since_feb') }}
+                                      $t('pages.water-bill-calculator.other.since_feb') }}
                                   </span>
                                 </div>
                               </div>
@@ -306,7 +310,7 @@
                                   <span
                                     class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
                                     {{
-                                      $t('pages.electricity-bill-calculator.other.since_sep') }}
+                                      $t('pages.water-bill-calculator.other.since_sep') }}
                                   </span>
                                 </div>
                               </div>
@@ -319,13 +323,13 @@
                 </CardContent>
                 <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
                   <p>
-                  *{{ $t('pages.electricity-bill-calculator.headings.note') }}
+                  *{{ $t('pages.water-bill-calculator.headings.note') }}
                   <!-- <Anchor class="font-bold underline capitalize" :text="
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                                                                            "
-                                                                                                                                                                                                                                                              href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                                      "
+                                                                                                                                                                                                                                                                                                                                                                                                        href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -333,23 +337,551 @@
             <TabPanel>
               <Card class="mb-4">
                 <CardContent>
-                  <CardTitle class="capitalize" :text="
-                    $t(
-                      'others.comming_soon'
-                    )
-                  " />
+                  <CardTitle class="inline-block pr-2 capitalize"
+                    :text="$t('pages.water-bill-calculator.headings.title')" />
+                  <CardTitle class="hidden text-blue-500 capitalize align-top md:inline-block">
+                    ({{ $t('pages.water-bill-calculator.tabs.state') }})</CardTitle>
+                  <p class="mb-4 leading-snug">
+                    {{
+                      $t('pages.water-bill-calculator.headings.description')
+                    }}
+                  </p>
+                  <div class="flex flex-col lg:flex-row">
+                    <div class="relative flex w-full mb-2 lg:mb-0">
+                      <FormTextInput v-model="enteredNumberOfUnits" class="w-full">
+                        <template #prefix-disabled>
+                          <span class="flex-1 px-4 py-2"> {{
+                            $t('pages.water-bill-calculator.other.units')
+                          }}</span>
+                        </template>
+                      </FormTextInput>
+                    </div>
+                    <div class="relative flex w-full mb-2 md:mb-0">
+                      <div
+                        class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
+                        <span class="flex-1 px-4 py-2"><span class="flex-1 px-4 py-2"> {{
+                          $t('pages.water-bill-calculator.other.period')
+                        }}</span></span>
+                      </div>
+                      <vue-tailwind-datepicker :formatter="formatter" separator=" to "
+                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
+                        v-model="dateValue" />
+                    </div>
+
+                    <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
+                      class="flex mb-2 space-x-1 border-none md:mb-0">
+                      <icon-ic:baseline-calculate />
+                      <span>{{ $t('others.calculate') }}</span>
+                    </Button>
+                    <MobileTopFixAd2 class="flex items-center justify-center mt-0 text-center md:hidden md:space-x-2" />
+                  </div>
+                  <div class="flex flex-col mt-2 h-4/6">
+                    <!-- Table -->
+                    <div
+                      class="w-full  bg-white dark:bg-slate-800 border-t border-gray-900/10 dark:border-gray-50/[0.2] border border-gray-200 rounded-sm">
+                      <div class="p-2 overflow-x-auto border-b-2 border-gray-100">
+                        <table class="w-full table-auto">
+                          <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50 dark:bg-slate-700">
+                            <tr>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">
+                                  {{ $t('pages.water-bill-calculator.other.tariff') }}</div>
+                              </th>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.water-bill-calculator.other.fixed_charge') }}</div>
+                              </th>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.water-bill-calculator.other.energy_charge') }}</div>
+                            </th>
+                            <!-- <th class="p-1">
+                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </th> -->
+                              <th class="p-1 align-text-top">
+                                <div class="font-medium text-left">{{
+                                  $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
+                                <div class="inline-block float-left font-semibold">
+                                  {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody class="text-sm text-gray-800 divide-y divide-gray-100 dark:text-gray-100">
+                            <!-- Previous -->
+                            <tr>
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_before') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.previous.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.previous).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ totals.previous.toFixed(2) }}
+                                </div>
+                              </td>
+                            </tr>
+                            <!-- Current Bill -->
+                            <tr>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_current') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.current.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.current).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ (totals.current).toFixed(2) }}
+                                </div>
+                                <p class="text-xs font-medium text-gray-400">15% VAT included</p>
+                              </td>
+                            </tr>
+                            <tr>
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_now') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.new.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.new).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ totals.new.toFixed(2) }}
+                                </div>
+                                <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                  $t('pages.water-bill-calculator.other.included') }}</p>
+                              </td>
+                            </tr>
+                            <!-- record 3 -->
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- total amount -->
+                      <div class="float-right">
+                        <div class="flex flex-row w-full px-4 pt-1 text-sm font-bold">
+                          <div class="mr-2 text-base text-red-400"> {{
+                            $t('pages.water-bill-calculator.other.new_total_bill') }}</div>
+                        </div>
+
+                        <div class="flex flex-row w-full px-4 pt-1 pb-4 space-x-2 text-sm font-bold">
+
+                          <div class="w-9/12 xs:w-auto">
+                            <div class="flex flex-col pr-2 border-gray-100">
+                              <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
+                                Intl.NumberFormat('en-US', {
+                                  maximumFractionDigits: 2,
+                                  currency: "LKR"
+                                }).format(totals.new) }}</div>
+                              <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                $t('pages.water-bill-calculator.other.included') }}</p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="flex flex-col text-base md:text-xl">
+                              <div class="px-2">
+                                <div class="mr-2 font-bold text-red-500">
+                                  <span class="inline-flex align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      stroke-width="1.5" stroke="currentColor" class="w-6 h-6 align-middle fill-red-400">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                                    </svg></span>
+                                  <span class="inline-flex font-bold align-top">
+                                    ({{
+                                      presentageInc.now
+                                    }}%)
+                                  </span>
+                                  <span
+                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
+                                    {{
+                                      $t('pages.water-bill-calculator.other.since_feb') }}
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="px-2">
+                                <div class="mr-2 text-red-500">
+                                  <span class="inline-flex align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      stroke-width="1.5" stroke="currentColor"
+                                      class="w-6 h-6 font-bold align-middle fill-red-500">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                                    </svg></span>
+                                  <span class="inline-flex font-bold align-top">
+                                    ({{
+                                      presentageInc.previous
+                                    }}%)
+                                  </span>
+                                  <span
+                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
+                                    {{
+                                      $t('pages.water-bill-calculator.other.since_sep') }}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
+                <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+                  <p>
+                  *{{ $t('pages.water-bill-calculator.headings.note') }}
+                  <!-- <Anchor class="font-bold underline capitalize" :text="
+                      $t(
+                        'pages.setting.sections.validate_username.footer_link'
+                      )
+                                                                                                                                                                                                                                                                                                                                                                                                      "
+                                                                                                                                                                                                                                                                                                                                                                                                        href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                  </p>
+                </CardFooter>
               </Card>
             </TabPanel>
             <TabPanel>
               <Card class="mb-4">
                 <CardContent>
-                  <CardTitle class="capitalize" :text="
-                    $t(
-                      'others.comming_soon'
-                    )
-                  " />
+                  <CardTitle class="inline-block pr-2 capitalize"
+                    :text="$t('pages.water-bill-calculator.headings.title')" />
+                  <CardTitle class="hidden text-blue-500 capitalize align-top md:inline-block">
+                    ({{ $t('pages.water-bill-calculator.tabs.domestic') }})</CardTitle>
+                  <p class="mb-4 leading-snug">
+                    {{
+                      $t('pages.water-bill-calculator.headings.description')
+                    }}
+                  </p>
+                  <div class="flex flex-col lg:flex-row">
+                    <div class="relative flex w-full mb-2 lg:mb-0">
+                      <FormTextInput v-model="enteredNumberOfUnits" class="w-full">
+                        <template #prefix-disabled>
+                          <span class="flex-1 px-4 py-2"> {{
+                            $t('pages.water-bill-calculator.other.units')
+                          }}</span>
+                        </template>
+                      </FormTextInput>
+                    </div>
+                    <div class="relative flex w-full mb-2 md:mb-0">
+                      <div
+                        class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
+                        <span class="flex-1 px-4 py-2"><span class="flex-1 px-4 py-2"> {{
+                          $t('pages.water-bill-calculator.other.period')
+                        }}</span></span>
+                      </div>
+                      <vue-tailwind-datepicker :formatter="formatter" separator=" to "
+                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
+                        v-model="dateValue" />
+                    </div>
+
+                    <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
+                      class="flex mb-2 space-x-1 border-none md:mb-0">
+                      <icon-ic:baseline-calculate />
+                      <span>{{ $t('others.calculate') }}</span>
+                    </Button>
+                    <MobileTopFixAd2 class="flex items-center justify-center mt-0 text-center md:hidden md:space-x-2" />
+                  </div>
+                  <div class="flex flex-col mt-2 h-4/6">
+                    <!-- Table -->
+                    <div
+                      class="w-full  bg-white dark:bg-slate-800 border-t border-gray-900/10 dark:border-gray-50/[0.2] border border-gray-200 rounded-sm">
+                      <div class="p-2 overflow-x-auto border-b-2 border-gray-100">
+                        <table class="w-full table-auto">
+                          <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50 dark:bg-slate-700">
+                            <tr>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">
+                                  {{ $t('pages.water-bill-calculator.other.tariff') }}</div>
+                              </th>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.water-bill-calculator.other.fixed_charge') }}</div>
+                              </th>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.water-bill-calculator.other.energy_charge') }}</div>
+                            </th>
+                            <!-- <th class="p-1">
+                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </th> -->
+                              <th class="p-1 align-text-top">
+                                <div class="font-medium text-left">{{
+                                  $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
+                                <div class="inline-block float-left font-semibold">
+                                  {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody class="text-sm text-gray-800 divide-y divide-gray-100 dark:text-gray-100">
+                            <!-- Previous -->
+                            <tr>
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_before') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.previous.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.previous).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ totals.previous.toFixed(2) }}
+                                </div>
+                              </td>
+                            </tr>
+                            <!-- Current Bill -->
+                            <tr>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_current') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.current.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.current).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ (totals.current).toFixed(2) }}
+                                </div>
+                                <p class="text-xs font-medium text-gray-400">15% VAT included</p>
+                              </td>
+                            </tr>
+                            <tr>
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_now') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.new.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.new).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ totals.new.toFixed(2) }}
+                                </div>
+                                <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                  $t('pages.water-bill-calculator.other.included') }}</p>
+                              </td>
+                            </tr>
+                            <!-- record 3 -->
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- total amount -->
+                      <div class="float-right">
+                        <div class="flex flex-row w-full px-4 pt-1 text-sm font-bold">
+                          <div class="mr-2 text-base text-red-400"> {{
+                            $t('pages.water-bill-calculator.other.new_total_bill') }}</div>
+                        </div>
+
+                        <div class="flex flex-row w-full px-4 pt-1 pb-4 space-x-2 text-sm font-bold">
+
+                          <div class="w-9/12 xs:w-auto">
+                            <div class="flex flex-col pr-2 border-gray-100">
+                              <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
+                                Intl.NumberFormat('en-US', {
+                                  maximumFractionDigits: 2,
+                                  currency: "LKR"
+                                }).format(totals.new) }}</div>
+                              <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                $t('pages.water-bill-calculator.other.included') }}</p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="flex flex-col text-base md:text-xl">
+                              <div class="px-2">
+                                <div class="mr-2 font-bold text-red-500">
+                                  <span class="inline-flex align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      stroke-width="1.5" stroke="currentColor" class="w-6 h-6 align-middle fill-red-400">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                                    </svg></span>
+                                  <span class="inline-flex font-bold align-top">
+                                    ({{
+                                      presentageInc.now
+                                    }}%)
+                                  </span>
+                                  <span
+                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
+                                    {{
+                                      $t('pages.water-bill-calculator.other.since_feb') }}
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="px-2">
+                                <div class="mr-2 text-red-500">
+                                  <span class="inline-flex align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      stroke-width="1.5" stroke="currentColor"
+                                      class="w-6 h-6 font-bold align-middle fill-red-500">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                                    </svg></span>
+                                  <span class="inline-flex font-bold align-top">
+                                    ({{
+                                      presentageInc.previous
+                                    }}%)
+                                  </span>
+                                  <span
+                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
+                                    {{
+                                      $t('pages.water-bill-calculator.other.since_sep') }}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
+                <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+                  <p>
+                  *{{ $t('pages.water-bill-calculator.headings.note') }}
+                  <!-- <Anchor class="font-bold underline capitalize" :text="
+                      $t(
+                        'pages.setting.sections.validate_username.footer_link'
+                      )
+                                                                                                                                                                                                                                                                                                                                                                                                      "
+                                                                                                                                                                                                                                                                                                                                                                                                        href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                  </p>
+                </CardFooter>
               </Card>
             </TabPanel>
             <TabPanel>
@@ -413,11 +945,11 @@ definePageMeta({
   layout: 'page',
 })
 useHead(() => ({
-  title: capitalize(t('pages.electricity-bill-calculator.title')),
+  title: capitalize(t('pages.water-bill-calculator.title')),
   meta: [
     {
       name: 'description',
-      content: t('pages.electricity-bill-calculator.description'),
+      content: t('pages.water-bill-calculator.description'),
     },
   ],
 }))
@@ -494,14 +1026,14 @@ const applicableFixedCharge = reactive(
   }
 )
 
+const selectedTab = ref(0)
+
+function changeTab(index) {
+  selectedTab.value = index
+}
 
 
-const options = [
-  { id: 1, name: 'Samurdhi Recipiants' },
-  { id: 2, name: 'State' },
-  { id: 3, name: 'Normal' },
-  // { id: 2, name: 'Previous Month Bill (Rs.)' },
-]
+const tabNames = ref(['Samurdhi Recipients', 'State', 'Domestic']);
 
 const costBeforeTax = reactive(
   {
@@ -961,14 +1493,7 @@ const charges = reactive(
 )
 
 const enteredNumberOfUnits = ref(0)
-const selectedCategory = ref(options[0])
 const enabled = ref(false)
-
-watch(selectedCategory, (newValue, oldValue) => {
-  if (newValue.id !== oldValue.id) {
-    enteredNumberOfUnits.value = 0;
-  }
-});
 
 function calculateWaterBillFixedCharge(category, units, setting) {
 
@@ -1259,10 +1784,7 @@ function calculateWaterBillUnitCharge(units, category, setting) {
 
 function calculateWaterBill() {
 
-  const category = selected;
-
-  console.log(category);
-
+  const category = selectedTab.value + 1;
   const numberOfUnits = enteredNumberOfUnits.value;
 
   //this must be used later
@@ -1277,17 +1799,17 @@ function calculateWaterBill() {
   applicableUnitCharge.new = calculateWaterBillUnitCharge(numberOfUnits, category, "new");
 
 
-  costBeforeTax.previous = applicableUnitCharge.previous + applicableFixedCharge.previous;
-  costBeforeTax.current = applicableUnitCharge.current + applicableFixedCharge.current;
-  costBeforeTax.new = applicableUnitCharge.new + applicableFixedCharge.new;
+  totalsBeforeTaxes.previous = applicableUnitCharge.previous + applicableFixedCharge.previous;
+  totalsBeforeTaxes.current = applicableUnitCharge.current + applicableFixedCharge.current;
+  totalsBeforeTaxes.new = applicableUnitCharge.new + applicableFixedCharge.new;
 
-  applicableTax.previous = costBeforeTax.previous * 15 / 100
-  applicableTax.current = costBeforeTax.current * 15 / 100
-  applicableTax.new = costBeforeTax.new * 15 / 100
+  applicableTax.previous = totalsBeforeTaxes.previous * 15 / 100
+  applicableTax.current = totalsBeforeTaxes.current * 15 / 100
+  applicableTax.new = totalsBeforeTaxes.new * 15 / 100
 
-  totals.previous = applicableFixedCharge.previous + costBeforeTax.previous + applicableTax.previous;
-  totals.current = applicableFixedCharge.current + costBeforeTax.current + applicableTax.current;
-  totals.new = applicableFixedCharge.new + costBeforeTax.new + applicableTax.new;
+  totals.previous = totalsBeforeTaxes.previous + applicableTax.previous;
+  totals.current = totalsBeforeTaxes.current + applicableTax.current;
+  totals.new = totalsBeforeTaxes.new + applicableTax.new;
 
   presentageInc.previous = (((totals.new + totals.new * 2.5 / 97.5) - (totals.current + totals.current * 2.5 / 97.5)) * 100 / (totals.current + totals.current * 2.5 / 97.5)).toFixed(0);
   presentageInc.now = (((totals.new + totals.new * 2.5 / 97.5) - totals.previous) * 100 / totals.previous).toFixed(0);

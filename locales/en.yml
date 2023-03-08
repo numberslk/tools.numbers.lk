@@ -46,14 +46,17 @@ pages:
     title: Water Bill Calculator
     description: Water Bill Calculator by numbers.lk
     tabs:
-      samurdhi: Samurdhi
-      state: State
-      domestic: Domestic
-      general: General Purpose
+      samurdhi: DOMESTIC SAMURDHI
+      samurdhi-desc: SAMURDHI RECEIPIENTS
+      state: NON SAMURDHI TENEMENT GARDEN
+      state-desc: NON SAMURDHI TENEMENT GARDEN
+      domestic: DOMESTIC
+      domestic-desc: OTHER THAN FOR SAMURDHI RECEIPIENTS AND TENEMENT GARDEN
+      general: GENERAL PURPOSE
     headings:
       title: Calculate Your Water Bill
       description: Enter your monthly consumption and your bill period to generate the bill.
-      note: New tariff change came in to effect on Feb 15, 2023. Therefore Feb 2023 bill considers both old and new tariffs
+      note: New tariff came in to effect on Sep 01, 2022.
     other:
       units: Units
       period: Period
@@ -63,11 +66,11 @@ pages:
       total_before_tax: Total Before Tax
       total_with_tax: Total With Tax
       included: included
-      new_total_bill: New Total Bill
+      new_total_bill: Total Bill
       tariff_before: Tariff Before Sep 2022
       tariff_current: Tariff Sep 2022 - Feb 2023
-      tariff_now: Tariff From Feb 2023
-      since_feb: Since Feb 2023
+      tariff_now: Tariff After Sep 2022
+      since_feb: Since Sep 2022
       since_sep: Since Sep 2022
       type: Type
   setting:

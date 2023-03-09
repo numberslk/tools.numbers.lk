@@ -50,11 +50,6 @@ export default defineNuxtConfig({
       BACKEND_URL: process.env.BACKEND_URL
     }
   },
-  image: {
-    storyblok: {
-      baseURL: "https://a.storyblok.com"
-    }
-  },
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -5,8 +5,8 @@
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              class="mb-6" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="mb-6" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
@@ -119,8 +119,8 @@
                                   $t('pages.electricity-bill-calculator.other.energy_charge') }}</div>
                             </th>
                             <!-- <th class="p-1">
-                                                                                                                                                                                                                        <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                      </th> -->
+                                                                                                                                                                                                                                  <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                </th> -->
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
                                   $t('pages.electricity-bill-calculator.other.total_before_tax') }}</div>
@@ -155,8 +155,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                      </td> -->
+                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -192,8 +192,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.current).toFixed(2) }}
-                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                        </td> -->
+                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                  </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -229,8 +229,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                        </td> -->
+                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                  </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -327,8 +327,8 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                  "
-                                                                                                                                                                                                    href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                            "
+                                                                                                                                                                                                              href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -448,7 +448,7 @@ const enableAdvancedSetting = ref(false)
 
 const log = ref<string[]>([])
 
-const dateValue = ref([])
+const dateValue = ref()
 const formatter = ref({
   date: 'DD MMM YYYY',
   month: 'MMM',
@@ -574,7 +574,7 @@ const energyCharge = reactive(
   }
 )
 
-const units = ref(0)
+const units = ref("")
 const enabled = ref(false)
 const units2 = ref(0)
 
@@ -752,10 +752,10 @@ function calculateFinalBill() {
     const numberOfDaysFrom15th = differenceInDays(new Date(dateValue.value[1]), new Date("2023 Feb 14"));
     const totalNumberOfDays = numberOfDaysTill15th + numberOfDaysFrom15th;
 
-    const fixCharge = calculateFixCharge(numberOfUnits, totalNumberOfDays);
-    const unitCharge = calculateEnergyCharge(numberOfUnits, totalNumberOfDays);
+    const fixCharge = calculateFixCharge(Number(numberOfUnits), totalNumberOfDays);
+    const unitCharge = calculateEnergyCharge(Number(numberOfUnits), totalNumberOfDays);
 
-    const dailyConsumption = numberOfUnits / totalNumberOfDays;
+    const dailyConsumption = Number(numberOfUnits) / totalNumberOfDays;
     const monthlyConsumption = dailyConsumption * 30;
 
     const unitChargePerviousTariff = calculateEnergyCharge(Math.ceil(dailyConsumption * numberOfDaysTill15th), numberOfDaysTill15th);
@@ -795,7 +795,7 @@ function calculateFinalBill() {
 
 function calculateElecBill() {
 
-  const numberOfUnits = units.value;
+  const numberOfUnits = Number(units.value);
   //old and new
 
   const numberOfDays = differenceInDays(new Date(dateValue.value[1]), new Date(dateValue.value[0]));
@@ -829,8 +829,7 @@ function calculateElecBill() {
 
 function calculateElecBillNew() {
 
-  const numberOfUnits = units.value;
-  units2.value = numberOfUnits;
+  const numberOfUnits = Number(units.value);
 
   const numberOfDays = differenceInDays(new Date(dateValue.value[1]), new Date(dateValue.value[0]));
 

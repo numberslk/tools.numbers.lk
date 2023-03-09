@@ -11,6 +11,13 @@ pages:
   index:
     title: numbers.lk tools
     open: open
+    tools:
+      electricity-bill-calculator:
+        title: Electricity Bill Calculator
+        description: Enter your monthly consumption and your bill period to generate bill.
+      water-bill-calculator:
+        title: Water Bill Calculator
+        description: Enter your monthly consumption and your bill period to generate bill.
   404:
     title: page not found
   electricity-bill-calculator:
@@ -18,7 +25,7 @@ pages:
     title: Electricity Bill Calculator
     description: Electricity Bill Calculator by numbers.lk
     tabs:
-      domestic: Domestic
+      domestic: DOMESTIC
       domesticTOU: Domestic TOU
       industrial: Industrial
       general: General Purpose
@@ -60,6 +67,7 @@ pages:
     other:
       units: Units
       period: Period
+      period_of_30days: For 30 Days
       tariff: tariff
       fixed_charge: Fixed Charge
       energy_charge: Energy Charge
@@ -106,6 +114,9 @@ pages:
       title: home
 banners:
   welcome: hello, welcome to %{app_name}!
+footer:
+  keep_in_touch: Let's keep in touch!
+  find_us_on: Find us on any of these platforms,
 others:
   learn_more: learn more
   comming_soon: Comming Soon

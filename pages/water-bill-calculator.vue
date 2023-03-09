@@ -4,8 +4,8 @@
   <PageWrapper>
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
-                                                                                                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </PageSection> -->
+                                                                                                                                                                                                            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
@@ -87,9 +87,12 @@
                           $t('pages.water-bill-calculator.other.period')
                         }}</span></span>
                       </div>
-                      <vue-tailwind-datepicker :formatter="formatter" separator=" to "
-                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
-                        v-model="dateValue" />
+                      <div
+                        class="flex w-full text-gray-800 border bg-slate-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800 dark:text-gray-200">
+                        <span class="flex-1 px-4 py-2"><span class="flex-1 px-4 py-2"> {{
+                          $t('pages.water-bill-calculator.other.period_of_30days')
+                        }}</span></span>
+                      </div>
                     </div>
 
                     <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
@@ -118,14 +121,11 @@
                               <th class="p-1">
                                 <div class="font-semibold text-left">{{
                                   $t('pages.water-bill-calculator.other.energy_charge') }}</div>
-                            </th>
-                            <!-- <th class="p-1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </th> -->
+                              </th>
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
                                   $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
-                                <div class="inline-block float-left font-semibold">
+                                <div class="inline-block float-left font-semibold text-left">
                                   {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
                               </th>
                             </tr>
@@ -156,8 +156,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -198,8 +198,8 @@
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
                                 <p class="text-xs font-medium text-gray-400">15% VAT included</p>
-                                                                                                            </td>
-                                                                                                            </tr>-->
+                                                                                                                                                                                                                      </td>
+                                                                                                                                                                                                                      </tr>-->
                             <tr>
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="font-medium">
@@ -248,6 +248,7 @@
                             <div class="flex flex-col pr-2 border-gray-100">
                               <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
                                 Intl.NumberFormat('en-US', {
+                                  minimumFractionDigits: 2,
                                   maximumFractionDigits: 2,
                                   currency: "LKR"
                                 }).format(totals.new) }}</div>
@@ -297,8 +298,8 @@
                                     {{
                                       $t('pages.water-bill-calculator.other.since_sep') }}
                                   </span>
-                                                                                                            </div>
-                                                                                                          </div> -->
+                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                    </div> -->
                             </div>
                           </div>
                         </div>
@@ -313,8 +314,8 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -348,9 +349,12 @@
                           $t('pages.water-bill-calculator.other.period')
                         }}</span></span>
                       </div>
-                      <vue-tailwind-datepicker :formatter="formatter" separator=" to "
-                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
-                        v-model="dateValue" />
+                      <div
+                        class="flex w-full text-gray-800 border bg-slate-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800 dark:text-gray-200">
+                        <span class="flex-1 px-4 py-2"><span class="flex-1 px-4 py-2"> {{
+                          $t('pages.water-bill-calculator.other.period_of_30days')
+                        }}</span></span>
+                      </div>
                     </div>
 
                     <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
@@ -381,12 +385,12 @@
                                   $t('pages.water-bill-calculator.other.energy_charge') }}</div>
                             </th>
                             <!-- <th class="p-1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </th> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </th> -->
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
                                   $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
-                                <div class="inline-block float-left font-semibold">
+                                <div class="inline-block float-left font-semibold text-left">
                                   {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
                               </th>
                             </tr>
@@ -417,8 +421,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -457,8 +461,8 @@
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
                                 <p class="text-xs font-medium text-gray-400">15% VAT included</p>
-                                                                                          </td>
-                                                                                        </tr> -->
+                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                  </tr> -->
                             <tr>
 
                               <td class="w-3/12 p-1 align-text-top">
@@ -483,8 +487,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -515,6 +519,7 @@
                             <div class="flex flex-col pr-2 border-gray-100">
                               <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
                                 Intl.NumberFormat('en-US', {
+                                  minimumFractionDigits: 2,
                                   maximumFractionDigits: 2,
                                   currency: "LKR"
                                 }).format(totals.new) }}</div>
@@ -564,8 +569,8 @@
                                     {{
                                       $t('pages.water-bill-calculator.other.since_sep') }}
                                   </span>
-                                                                                      </div>
-                                                                                    </div> -->
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                              </div> -->
                             </div>
                           </div>
                         </div>
@@ -580,8 +585,8 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -615,9 +620,12 @@
                           $t('pages.water-bill-calculator.other.period')
                         }}</span></span>
                       </div>
-                      <vue-tailwind-datepicker :formatter="formatter" separator=" to "
-                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
-                        v-model="dateValue" />
+                      <div
+                        class="flex w-full text-gray-800 border bg-slate-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800 dark:text-gray-200">
+                        <span class="flex-1 px-4 py-2"><span class="flex-1 px-4 py-2"> {{
+                          $t('pages.water-bill-calculator.other.period_of_30days')
+                        }}</span></span>
+                      </div>
                     </div>
 
                     <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
@@ -648,12 +656,12 @@
                                   $t('pages.water-bill-calculator.other.energy_charge') }}</div>
                             </th>
                             <!-- <th class="p-1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </th> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </th> -->
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
                                   $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
-                                <div class="inline-block float-left font-semibold">
+                                <div class="inline-block float-left font-semibold text-left">
                                   {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
                               </th>
                             </tr>
@@ -684,8 +692,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -724,8 +732,8 @@
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
                                 <p class="text-xs font-medium text-gray-400">15% VAT included</p>
-                                                                                        </td>
-                                                                                      </tr> -->
+                                                                                                                                                                                                  </td>
+                                                                                                                                                                                                </tr> -->
                             <tr>
 
                               <td class="w-3/12 p-1 align-text-top">
@@ -750,8 +758,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -782,6 +790,7 @@
                             <div class="flex flex-col pr-2 border-gray-100">
                               <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
                                 Intl.NumberFormat('en-US', {
+                                  minimumFractionDigits: 2,
                                   maximumFractionDigits: 2,
                                   currency: "LKR"
                                 }).format(totals.new) }}</div>
@@ -831,8 +840,8 @@
                                     {{
                                       $t('pages.water-bill-calculator.other.since_sep') }}
                                   </span>
-                                                                                        </div>
-                                                                                      </div> -->
+                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                </div> -->
                             </div>
                           </div>
                         </div>
@@ -847,8 +856,8 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -1698,75 +1707,223 @@ function calculateWaterBillFixedCharge(category, units, setting) {
 
 function calculateWaterBillUnitCharge(units, category, setting) {
 
-  if (category == 1) {
-    if (units <= 5) {
-      return charges.previous.units_00_05.samurdhi.unit * units;
-    } else if ((units > 5) && (units <= 10)) {
-      return (calculateWaterBillUnitCharge(5, category, setting) + charges.previous.units_06_10.samurdhi.unit * (units - 5));
-    } else if ((units > 10) && units <= 15) {
-      return (calculateWaterBillUnitCharge(10, category, setting) + charges.previous.units_11_15.samurdhi.unit * (units - 10));
-    } else if ((units > 15) && units <= 20) {
-      return (calculateWaterBillUnitCharge(15, category, setting) + charges.previous.units_16_20.samurdhi.unit * (units - 15));
-    } else if ((units > 20) && units <= 25) {
-      return (calculateWaterBillUnitCharge(20, category, setting) + charges.previous.units_21_25.samurdhi.unit * (units - 20));
-    } else if ((units > 25) && units <= 30) {
-      return (calculateWaterBillUnitCharge(25, category, setting) + charges.previous.units_26_30.samurdhi.unit * (units - 25));
-    } else if ((units > 30) && units <= 40) {
-      return (calculateWaterBillUnitCharge(30, category, setting) + charges.previous.units_31_40.samurdhi.unit * (units - 30));
-    } else if ((units > 40) && units <= 50) {
-      return (calculateWaterBillUnitCharge(40, category, setting) + charges.previous.units_41_50.samurdhi.unit * (units - 40));
-    } else if ((units > 50) && units <= 75) {
-      return (calculateWaterBillUnitCharge(50, category, setting) + charges.previous.units_51_75.samurdhi.unit * (units - 50));
-    } else {
-      return (calculateWaterBillUnitCharge(75, category, setting) + charges.previous.units_76.samurdhi.unit * (units - 75));
-    }
-  }
 
-  if (category == 2) {
-    if (units <= 5) {
-      return charges.previous.units_00_05.wathu.unit * units;
-    } else if ((units > 5) && (units <= 10)) {
-      return (calculateWaterBillUnitCharge(5, category, setting) + charges.previous.units_06_10.wathu.unit * (units - 5));
-    } else if ((units > 10) && units <= 15) {
-      return (calculateWaterBillUnitCharge(10, category, setting) + charges.previous.units_11_15.wathu.unit * (units - 10));
-    } else if ((units > 15) && units <= 20) {
-      return (calculateWaterBillUnitCharge(15, category, setting) + charges.previous.units_16_20.wathu.unit * (units - 15));
-    } else if ((units > 20) && units <= 25) {
-      return (calculateWaterBillUnitCharge(20, category, setting) + charges.previous.units_21_25.wathu.unit * (units - 20));
-    } else if ((units > 25) && units <= 30) {
-      return (calculateWaterBillUnitCharge(25, category, setting) + charges.previous.units_26_30.wathu.unit * (units - 25));
-    } else if ((units > 30) && units <= 40) {
-      return (calculateWaterBillUnitCharge(30, category, setting) + charges.previous.units_31_40.wathu.unit * (units - 30));
-    } else if ((units > 40) && units <= 50) {
-      return (calculateWaterBillUnitCharge(40, category, setting) + charges.previous.units_41_50.wathu.unit * (units - 40));
-    } else if ((units > 50) && units <= 75) {
-      return (calculateWaterBillUnitCharge(50, category, setting) + charges.previous.units_51_75.wathu.unit * (units - 50));
-    } else {
-      return (calculateWaterBillUnitCharge(75, category, setting) + charges.previous.units_76.wathu.unit * (units - 75));
+  if (setting == "previous") {
+    if (category == 1) {
+      if (units <= 5) {
+        return charges.previous.units_00_05.samurdhi.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.previous.units_06_10.samurdhi.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.previous.units_11_15.samurdhi.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.previous.units_16_20.samurdhi.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.previous.units_21_25.samurdhi.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.previous.units_26_30.samurdhi.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.previous.units_31_40.samurdhi.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.previous.units_41_50.samurdhi.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.previous.units_51_75.samurdhi.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.previous.units_76.samurdhi.unit * (units - 75));
+      }
     }
-  }
 
-  if (category == 3) {
-    if (units <= 5) {
-      return charges.previous.units_00_05.normal.unit * units;
-    } else if ((units > 5) && (units <= 10)) {
-      return (calculateWaterBillUnitCharge(5, category, setting) + charges.previous.units_06_10.normal.unit * (units - 5));
-    } else if ((units > 10) && units <= 15) {
-      return (calculateWaterBillUnitCharge(10, category, setting) + charges.previous.units_11_15.normal.unit * (units - 10));
-    } else if ((units > 15) && units <= 20) {
-      return (calculateWaterBillUnitCharge(15, category, setting) + charges.previous.units_16_20.normal.unit * (units - 15));
-    } else if ((units > 20) && units <= 25) {
-      return (calculateWaterBillUnitCharge(20, category, setting) + charges.previous.units_21_25.normal.unit * (units - 20));
-    } else if ((units > 25) && units <= 30) {
-      return (calculateWaterBillUnitCharge(25, category, setting) + charges.previous.units_26_30.normal.unit * (units - 25));
-    } else if ((units > 30) && units <= 40) {
-      return (calculateWaterBillUnitCharge(30, category, setting) + charges.previous.units_31_40.normal.unit * (units - 30));
-    } else if ((units > 40) && units <= 50) {
-      return (calculateWaterBillUnitCharge(40, category, setting) + charges.previous.units_41_50.normal.unit * (units - 40));
-    } else if ((units > 50) && units <= 75) {
-      return (calculateWaterBillUnitCharge(50, category, setting) + charges.previous.units_51_75.normal.unit * (units - 50));
-    } else {
-      return (calculateWaterBillUnitCharge(75, category, setting) + charges.previous.units_76.normal.unit * (units - 75));
+    if (category == 2) {
+      if (units <= 5) {
+        return charges.previous.units_00_05.wathu.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.previous.units_06_10.wathu.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.previous.units_11_15.wathu.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.previous.units_16_20.wathu.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.previous.units_21_25.wathu.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.previous.units_26_30.wathu.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.previous.units_31_40.wathu.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.previous.units_41_50.wathu.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.previous.units_51_75.wathu.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.previous.units_76.wathu.unit * (units - 75));
+      }
+    }
+
+    if (category == 3) {
+      if (units <= 5) {
+        return charges.previous.units_00_05.normal.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.previous.units_06_10.normal.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.previous.units_11_15.normal.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.previous.units_16_20.normal.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.previous.units_21_25.normal.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.previous.units_26_30.normal.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.previous.units_31_40.normal.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.previous.units_41_50.normal.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.previous.units_51_75.normal.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.previous.units_76.normal.unit * (units - 75));
+      }
+    }
+
+  } else if (setting = "current") {
+    if (category == 1) {
+      if (units <= 5) {
+        return charges.current.units_00_05.samurdhi.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.current.units_06_10.samurdhi.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.current.units_11_15.samurdhi.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.current.units_16_20.samurdhi.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.current.units_21_25.samurdhi.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.current.units_26_30.samurdhi.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.current.units_31_40.samurdhi.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.current.units_41_50.samurdhi.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.current.units_51_75.samurdhi.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.current.units_76.samurdhi.unit * (units - 75));
+      }
+    }
+
+    if (category == 2) {
+      if (units <= 5) {
+        return charges.current.units_00_05.wathu.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.current.units_06_10.wathu.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.current.units_11_15.wathu.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.current.units_16_20.wathu.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.current.units_21_25.wathu.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.current.units_26_30.wathu.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.current.units_31_40.wathu.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.current.units_41_50.wathu.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.current.units_51_75.wathu.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.current.units_76.wathu.unit * (units - 75));
+      }
+    }
+
+    if (category == 3) {
+      if (units <= 5) {
+        return charges.current.units_00_05.normal.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.current.units_06_10.normal.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.current.units_11_15.normal.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.current.units_16_20.normal.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.current.units_21_25.normal.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.current.units_26_30.normal.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.current.units_31_40.normal.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.current.units_41_50.normal.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.current.units_51_75.normal.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.current.units_76.normal.unit * (units - 75));
+      }
+    }
+  } else if (setting == "new") {
+    if (category == 1) {
+      if (units <= 5) {
+        return charges.new.units_00_05.samurdhi.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.new.units_06_10.samurdhi.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.new.units_11_15.samurdhi.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.new.units_16_20.samurdhi.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.new.units_21_25.samurdhi.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.new.units_26_30.samurdhi.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.new.units_31_40.samurdhi.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.new.units_41_50.samurdhi.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.new.units_51_75.samurdhi.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.new.units_76.samurdhi.unit * (units - 75));
+      }
+    }
+
+    if (category == 2) {
+      if (units <= 5) {
+        return charges.new.units_00_05.wathu.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.new.units_06_10.wathu.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.new.units_11_15.wathu.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.new.units_16_20.wathu.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.new.units_21_25.wathu.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.new.units_26_30.wathu.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.new.units_31_40.wathu.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.new.units_41_50.wathu.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.new.units_51_75.wathu.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.new.units_76.wathu.unit * (units - 75));
+      }
+    }
+
+    if (category == 3) {
+      if (units <= 5) {
+        return charges.new.units_00_05.normal.unit * units;
+      } else if ((units > 5) && (units <= 10)) {
+        return (calculateWaterBillUnitCharge(5, category, setting) + charges.new.units_06_10.normal.unit * (units - 5));
+      } else if ((units > 10) && units <= 15) {
+        return (calculateWaterBillUnitCharge(10, category, setting) + charges.new.units_11_15.normal.unit * (units - 10));
+      } else if ((units > 15) && units <= 20) {
+        return (calculateWaterBillUnitCharge(15, category, setting) + charges.new.units_16_20.normal.unit * (units - 15));
+      } else if ((units > 20) && units <= 25) {
+        return (calculateWaterBillUnitCharge(20, category, setting) + charges.new.units_21_25.normal.unit * (units - 20));
+      } else if ((units > 25) && units <= 30) {
+        return (calculateWaterBillUnitCharge(25, category, setting) + charges.new.units_26_30.normal.unit * (units - 25));
+      } else if ((units > 30) && units <= 40) {
+        return (calculateWaterBillUnitCharge(30, category, setting) + charges.new.units_31_40.normal.unit * (units - 30));
+      } else if ((units > 40) && units <= 50) {
+        return (calculateWaterBillUnitCharge(40, category, setting) + charges.new.units_41_50.normal.unit * (units - 40));
+      } else if ((units > 50) && units <= 75) {
+        return (calculateWaterBillUnitCharge(50, category, setting) + charges.new.units_51_75.normal.unit * (units - 50));
+      } else {
+        return (calculateWaterBillUnitCharge(75, category, setting) + charges.new.units_76.normal.unit * (units - 75));
+      }
     }
   }
 }

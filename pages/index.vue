@@ -57,18 +57,18 @@ const copyBash = () => {
           <CardContent>
             <CardTitle class="capitalize" :text="$t('pages.electricity-bill-calculator.title')" />
             <p class="mb-2">
-              {{ $t('pages.setting.sections.validate_username.description') }}
+              {{ $t('pages.index.tools.electricity-bill-calculator.description') }}
             </p>
           </CardContent>
-          <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+          <CardFooter class="flex flex-col items-end space-y-2 md:space-y md:flex-row md:justify-between">
             <!-- <p>
-                                  {{ $t('pages.setting.sections.validate_username.footer') }}
-                                  <Anchor class="font-bold underline capitalize" :text="
-                                    $t(
-                                      'pages.setting.sections.validate_username.footer_link'
-                                    )
-                                  " href="https://tools.numbers.lk/electricity-bill-calculator" />
-                                </p> -->
+                                                      {{ $t('pages.setting.sections.validate_username.footer') }}
+                                                      <Anchor class="font-bold underline capitalize" :text="
+                                                        $t(
+                                                          'pages.setting.sections.validate_username.footer_link'
+                                                        )
+                                                      " href="https://tools.numbers.lk/electricity-bill-calculator" />
+                                                    </p> -->
             <Button class="capitalize" to="/electricity-bill-calculator" size="sm" type="opposite" :text="
               $t(
                 'pages.index.open'
@@ -80,17 +80,17 @@ const copyBash = () => {
             <CardTitle class="capitalize" :text="$t('pages.water-bill-calculator.title')" />
             <p class="mb-2">
               {{
-                $t('pages.setting.sections.validate_username.description')
+                $t('pages.index.tools.water-bill-calculator.description')
               }}
             </p>
           </CardContent>
-          <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+          <CardFooter class="flex flex-col items-end space-y-2 md:space-y md:flex-row md:justify-between">
             <!-- <p>
-                                  {{ $t('pages.setting.sections.validate_username.footer') }}
-                                  <Anchor class="font-bold underline capitalize" :text="
-                                    $t('pages.setting.sections.validate_username.footer_link')
-                                  " href="https://tools.numbers.lk/water-bill-calculator" />
-                                </p> -->
+                                                      {{ $t('pages.setting.sections.validate_username.footer') }}
+                                                      <Anchor class="font-bold underline capitalize" :text="
+                                                        $t('pages.setting.sections.validate_username.footer_link')
+                                                      " href="https://tools.numbers.lk/water-bill-calculator" />
+                                                    </p> -->
             <Button class="capitalize" size="sm" to="/water-bill-calculator" type="opposite"
               :text="$t('pages.index.open')" />
           </CardFooter>

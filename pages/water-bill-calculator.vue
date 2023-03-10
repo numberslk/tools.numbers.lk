@@ -4,8 +4,8 @@
   <PageWrapper>
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
-                                                                                                                                                                                                                                                                                                                                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
@@ -54,8 +54,8 @@
                   : 'text-slate-800 dark:text-gray-400',
               ]">
                 {{ $t('pages.water-bill-calculator.tabs.general') }}
-                                                                                            </button>
-                                                                                          </HeadlessUiTab> -->
+                                                                                              </button>
+                                                                                            </HeadlessUiTab> -->
           </TabList>
           <TabPanels class="flex-1">
             <TabPanel>
@@ -156,8 +156,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -198,8 +198,8 @@
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
                                 <p class="text-xs font-medium text-gray-400">15% VAT included</p>
-                                                                                                                                                                                                                                                                                                                                                          </td>
-                                                                                                                                                                                                                                                                                                                                                          </tr>-->
+                                                                                                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                                                                                                            </tr>-->
                             <tr>
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="font-medium">
@@ -298,8 +298,8 @@
                                     {{
                                       $t('pages.water-bill-calculator.other.since_sep') }}
                                   </span>
-                                                                                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                          </div> -->
                             </div>
                           </div>
                         </div>
@@ -314,8 +314,8 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              "
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -385,8 +385,8 @@
                                   $t('pages.water-bill-calculator.other.energy_charge') }}</div>
                             </th>
                             <!-- <th class="p-1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </th> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </th> -->
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
                                   $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
@@ -421,8 +421,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -461,8 +461,8 @@
                                   {{ (totals.current).toFixed(2) }}
                                 </div>
                                 <p class="text-xs font-medium text-gray-400">15% VAT included</p>
-                                                                                                                                                                                                                                                                                                                                        </td>
-                                                                                                                                                                                                                                                                                                                                      </tr> -->
+                                                                                                                                                                                                                                                                                                                                          </td>
+                                                                                                                                                                                                                                                                                                                                        </tr> -->
                             <tr>
 
                               <td class="w-3/12 p-1 align-text-top">
@@ -487,279 +487,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
-
-                              <td class="w-3/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                </div>
-                                <div class="text-base font-semibold text-left md:text-lg">
-                                  {{ totals.new.toFixed(2) }}
-                                </div>
-                                <p class="text-xs font-medium text-gray-400">*15% VAT {{
-                                  $t('pages.water-bill-calculator.other.included') }}</p>
-                              </td>
-                            </tr>
-                            <!-- record 3 -->
-                          </tbody>
-                        </table>
-                      </div>
-
-                      <!-- total amount -->
-                      <div class="float-right">
-                        <div class="flex flex-row w-full px-4 pt-1 text-sm font-bold">
-                          <div class="mr-2 text-base text-red-400"> {{
-                            $t('pages.water-bill-calculator.other.new_total_bill') }}</div>
-                        </div>
-
-                        <div class="flex flex-row w-full px-4 pt-1 pb-4 space-x-2 text-sm font-bold">
-
-                          <div class="w-9/12 xs:w-auto">
-                            <div class="flex flex-col pr-2 border-gray-100">
-                              <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
-                                Intl.NumberFormat('en-US', {
-                                  minimumFractionDigits: 2,
-                                  maximumFractionDigits: 2,
-                                  currency: "LKR"
-                                }).format(totals.new) }}</div>
-                              <p class="text-xs font-medium text-gray-400">*15% VAT {{
-                                $t('pages.water-bill-calculator.other.included') }}</p>
-                            </div>
-                          </div>
-
-                          <div>
-                            <div class="flex flex-col text-base md:text-xl">
-                              <div class="px-2">
-                                <div class="mr-2 font-bold text-red-500">
-                                  <span class="inline-flex align-middle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                      stroke-width="1.5" stroke="currentColor" class="w-6 h-6 align-middle fill-red-400">
-                                      <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
-                                    </svg></span>
-                                  <span class="inline-flex font-bold align-top">
-                                    ({{
-                                      presentageInc.now
-                                    }}%)
-                                  </span>
-                                  <span
-                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
-                                    {{
-                                      $t('pages.water-bill-calculator.other.since_feb') }}
-                                  </span>
-                                </div>
-                            </div>
-                            <!-- <div class="px-2">
-                                <div class="mr-2 text-red-500">
-                                  <span class="inline-flex align-middle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                      stroke-width="1.5" stroke="currentColor"
-                                      class="w-6 h-6 font-bold align-middle fill-red-500">
-                                      <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
-                                    </svg></span>
-                                  <span class="inline-flex font-bold align-top">
-                                    ({{
-                                      presentageInc.previous
-                                    }}%)
-                                  </span>
-                                  <span
-                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
-                                    {{
-                                      $t('pages.water-bill-calculator.other.since_sep') }}
-                                  </span>
-                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                  </div> -->
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
-                  <p>
-                  *{{ $t('pages.water-bill-calculator.headings.note') }}
-                  <!-- <Anchor class="font-bold underline capitalize" :text="
-                      $t(
-                        'pages.setting.sections.validate_username.footer_link'
-                      )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              "
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
-                  </p>
-                </CardFooter>
-              </Card>
-            </TabPanel>
-            <TabPanel>
-              <Card class="mb-4">
-                <CardContent>
-                  <CardTitle class="inline-block pr-2 capitalize"
-                    :text="$t('pages.water-bill-calculator.headings.title')" />
-                  <CardTitle class="text-blue-500 capitalize align-top md:inline-block">
-                    ({{ $t('pages.water-bill-calculator.tabs.domestic') }})</CardTitle>
-                  <p class="mb-4 leading-snug">
-                    {{
-                      $t('pages.water-bill-calculator.headings.description')
-                    }}
-                  </p>
-                  <div class="flex flex-col lg:flex-row">
-                    <div class="relative flex w-full mb-2 lg:w-2/3 lg:mb-0">
-                      <FormTextInput v-model="enteredNumberOfUnits" class="w-full">
-                        <template #prefix-disabled>
-                          <span class="flex-1 px-2 py-2 md:px-4"> {{
-                            $t('pages.water-bill-calculator.other.units')
-                          }}</span>
-                        </template>
-                      </FormTextInput>
-                    </div>
-                    <div class="relative flex w-full mb-2 lg:mb-0">
-                      <div
-                        class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
-                        <span class="flex-1 px-2 py-2 md:px-4"><span class="flex-1 px-2 py-2 md:px-4"> {{
-                          $t('pages.water-bill-calculator.other.period')
-                        }}</span></span>
-                      </div>
-                      <div
-                        class="flex w-full text-gray-800 border bg-slate-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800 dark:text-gray-200">
-                        <span class="flex-1 px-2 py-2 md:px-4"><span class="flex-1 px-2 py-2 md:px-4"> {{
-                          $t('pages.water-bill-calculator.other.period_of_30days')
-                        }}</span></span>
-                      </div>
-                    </div>
-
-                    <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
-                      class="flex mb-2 space-x-1 lg:mb-0">
-                      <icon-ic:baseline-calculate />
-                      <span>{{ $t('others.calculate') }}</span>
-                    </Button>
-                    <MobileTopFixAd2 class="flex items-center justify-center mt-0 text-center md:hidden md:space-x-2" />
-                  </div>
-                  <div class="flex flex-col mt-2 h-4/6">
-                    <!-- Table -->
-                    <div
-                      class="w-full  bg-white dark:bg-slate-800 border-t border-gray-900/10 dark:border-gray-50/[0.2] border border-gray-200 rounded-sm">
-                      <div class="p-2 overflow-x-auto border-b-2 border-gray-100">
-                        <table class="w-full table-auto">
-                          <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50 dark:bg-slate-700">
-                            <tr>
-                              <th class="p-1">
-                                <div class="font-semibold text-left">
-                                  {{ $t('pages.water-bill-calculator.other.tariff') }}</div>
-                              </th>
-                              <th class="p-1">
-                                <div class="font-semibold text-left">{{
-                                  $t('pages.water-bill-calculator.other.fixed_charge') }}</div>
-                              </th>
-                              <th class="p-1">
-                                <div class="font-semibold text-left">{{
-                                  $t('pages.water-bill-calculator.other.energy_charge') }}</div>
-                            </th>
-                            <!-- <th class="p-1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </th> -->
-                              <th class="p-1 align-text-top">
-                                <div class="font-medium text-left">{{
-                                  $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
-                                <div class="inline-block float-left font-semibold text-left">
-                                  {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
-                              </th>
-                            </tr>
-                          </thead>
-
-                          <tbody class="text-sm text-gray-800 divide-y divide-gray-100 dark:text-gray-100">
-                            <!-- Previous -->
-                            <tr>
-                              <td class="w-3/12 p-1 align-text-top">
-                                <div class="font-medium">
-                                  {{ $t('pages.water-bill-calculator.other.tariff_before') }}
-                                </div>
-                              </td>
-
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">{{
-                                  applicableFixedCharge.previous.toFixed(2)
-                                }}
-                                </div>
-                              </td>
-
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ (applicableUnitCharge.previous).toFixed(2) }}
-                                </div>
-                              </td>
-
-                            <!-- <td class="w-2/12 p-1">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </td> -->
-
-                              <td class="w-3/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                </div>
-                                <div class="text-base font-semibold text-left md:text-lg">
-                                  {{ totals.previous.toFixed(2) }}
-                                </div>
-                              </td>
-                            </tr>
-                          <!-- Current Bill -->
-                          <!-- <tr>
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="font-medium">
-                                  {{ $t('pages.water-bill-calculator.other.tariff_current') }}
-                                </div>
-                              </td>
-
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">{{
-                                  applicableFixedCharge.current.toFixed(2)
-                                }}
-                                </div>
-                              </td>
-
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ (applicableUnitCharge.current).toFixed(2) }}
-                                </div>
-                              </td>
-                              <td class="w-3/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
-                                </div>
-                                <div class="text-base font-semibold text-left md:text-lg">
-                                  {{ (totals.current).toFixed(2) }}
-                                </div>
-                                <p class="text-xs font-medium text-gray-400">15% VAT included</p>
-                                                                                                                                                                                                                                                                                                                                      </td>
-                                                                                                                                                                                                                                                                                                                                    </tr> -->
-                            <tr>
-
-                              <td class="w-3/12 p-1 align-text-top">
-                                <div class="font-medium">
-                                  {{ $t('pages.water-bill-calculator.other.tariff_now') }}
-                                </div>
-                              </td>
-
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">{{
-                                  applicableFixedCharge.new.toFixed(2)
-                                }}
-                                </div>
-                              </td>
-
-                              <td class="w-2/12 p-1 align-text-top">
-                                <div class="text-base font-medium text-left md:text-lg">
-                                  {{ (applicableUnitCharge.new).toFixed(2) }}
-                                </div>
-                              </td>
-
-                            <!-- <td class="w-2/12 p-1">
-                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
-                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -856,8 +585,279 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              "
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                  </p>
+                </CardFooter>
+              </Card>
+            </TabPanel>
+            <TabPanel>
+              <Card class="mb-4">
+                <CardContent>
+                  <CardTitle class="inline-block pr-2 capitalize"
+                    :text="$t('pages.water-bill-calculator.headings.title')" />
+                  <CardTitle class="text-blue-500 capitalize align-top md:inline-block">
+                    ({{ $t('pages.water-bill-calculator.tabs.domestic') }})</CardTitle>
+                  <p class="mb-4 leading-snug">
+                    {{
+                      $t('pages.water-bill-calculator.headings.description')
+                    }}
+                  </p>
+                  <div class="flex flex-col lg:flex-row">
+                    <div class="relative flex w-full mb-2 lg:w-2/3 lg:mb-0">
+                      <FormTextInput v-model="enteredNumberOfUnits" class="w-full">
+                        <template #prefix-disabled>
+                          <span class="flex-1 px-2 py-2 md:px-4"> {{
+                            $t('pages.water-bill-calculator.other.units')
+                          }}</span>
+                        </template>
+                      </FormTextInput>
+                    </div>
+                    <div class="relative flex w-full mb-2 lg:mb-0">
+                      <div
+                        class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
+                        <span class="flex-1 px-2 py-2 md:px-4"><span class="flex-1 px-2 py-2 md:px-4"> {{
+                          $t('pages.water-bill-calculator.other.period')
+                        }}</span></span>
+                      </div>
+                      <div
+                        class="flex w-full text-gray-800 border bg-slate-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800 dark:text-gray-200">
+                        <span class="flex-1 px-2 py-2 md:px-4"><span class="flex-1 px-2 py-2 md:px-4"> {{
+                          $t('pages.water-bill-calculator.other.period_of_30days')
+                        }}</span></span>
+                      </div>
+                    </div>
+
+                    <Button type="opposite" @click="calculateWaterBill" placeholder="Enter number of Units"
+                      class="flex mb-2 space-x-1 lg:mb-0">
+                      <icon-ic:baseline-calculate />
+                      <span>{{ $t('others.calculate') }}</span>
+                    </Button>
+                    <MobileTopFixAd2 class="flex items-center justify-center mt-0 text-center md:hidden md:space-x-2" />
+                  </div>
+                  <div class="flex flex-col mt-2 h-4/6">
+                    <!-- Table -->
+                    <div
+                      class="w-full  bg-white dark:bg-slate-800 border-t border-gray-900/10 dark:border-gray-50/[0.2] border border-gray-200 rounded-sm">
+                      <div class="p-2 overflow-x-auto border-b-2 border-gray-100">
+                        <table class="w-full table-auto">
+                          <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50 dark:bg-slate-700">
+                            <tr>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">
+                                  {{ $t('pages.water-bill-calculator.other.tariff') }}</div>
+                              </th>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.water-bill-calculator.other.fixed_charge') }}</div>
+                              </th>
+                              <th class="p-1">
+                                <div class="font-semibold text-left">{{
+                                  $t('pages.water-bill-calculator.other.energy_charge') }}</div>
+                            </th>
+                            <!-- <th class="p-1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </th> -->
+                              <th class="p-1 align-text-top">
+                                <div class="font-medium text-left">{{
+                                  $t('pages.water-bill-calculator.other.total_before_tax') }}</div>
+                                <div class="inline-block float-left font-semibold text-left">
+                                  {{ $t('pages.water-bill-calculator.other.total_with_tax') }}</div>
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody class="text-sm text-gray-800 divide-y divide-gray-100 dark:text-gray-100">
+                            <!-- Previous -->
+                            <tr>
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_before') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.previous.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.previous).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ totalsBeforeTaxes.previous.toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ totals.previous.toFixed(2) }}
+                                </div>
+                              </td>
+                            </tr>
+                          <!-- Current Bill -->
+                          <!-- <tr>
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_current') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.current.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.current).toFixed(2) }}
+                                </div>
+                              </td>
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.current).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ (totals.current).toFixed(2) }}
+                                </div>
+                                <p class="text-xs font-medium text-gray-400">15% VAT included</p>
+                                                                                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                                                                                      </tr> -->
+                            <tr>
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="font-medium">
+                                  {{ $t('pages.water-bill-calculator.other.tariff_now') }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">{{
+                                  applicableFixedCharge.new.toFixed(2)
+                                }}
+                                </div>
+                              </td>
+
+                              <td class="w-2/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (applicableUnitCharge.new).toFixed(2) }}
+                                </div>
+                              </td>
+
+                            <!-- <td class="w-2/12 p-1">
+                                <div class="text-base font-medium text-left text-blue-400 md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </td> -->
+
+                              <td class="w-3/12 p-1 align-text-top">
+                                <div class="text-base font-medium text-left md:text-lg">
+                                  {{ (totalsBeforeTaxes.new).toFixed(2) }}
+                                </div>
+                                <div class="text-base font-semibold text-left md:text-lg">
+                                  {{ totals.new.toFixed(2) }}
+                                </div>
+                                <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                  $t('pages.water-bill-calculator.other.included') }}</p>
+                              </td>
+                            </tr>
+                            <!-- record 3 -->
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- total amount -->
+                      <div class="float-right">
+                        <div class="flex flex-row w-full px-4 pt-1 text-sm font-bold">
+                          <div class="mr-2 text-base text-red-400"> {{
+                            $t('pages.water-bill-calculator.other.new_total_bill') }}</div>
+                        </div>
+
+                        <div class="flex flex-row w-full px-4 pt-1 pb-4 space-x-2 text-sm font-bold">
+
+                          <div class="w-9/12 xs:w-auto">
+                            <div class="flex flex-col pr-2 border-gray-100">
+                              <div class="text-2xl text-left text-red-600 md:text-3xl"> Rs. {{ new
+                                Intl.NumberFormat('en-US', {
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2,
+                                  currency: "LKR"
+                                }).format(totals.new) }}</div>
+                              <p class="text-xs font-medium text-gray-400">*15% VAT {{
+                                $t('pages.water-bill-calculator.other.included') }}</p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div class="flex flex-col text-base md:text-xl">
+                              <div class="px-2">
+                                <div class="mr-2 font-bold text-red-500">
+                                  <span class="inline-flex align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      stroke-width="1.5" stroke="currentColor" class="w-6 h-6 align-middle fill-red-400">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                                    </svg></span>
+                                  <span class="inline-flex font-bold align-top">
+                                    ({{
+                                      presentageInc.now
+                                    }}%)
+                                  </span>
+                                  <span
+                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
+                                    {{
+                                      $t('pages.water-bill-calculator.other.since_feb') }}
+                                  </span>
+                                </div>
+                            </div>
+                            <!-- <div class="px-2">
+                                <div class="mr-2 text-red-500">
+                                  <span class="inline-flex align-middle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      stroke-width="1.5" stroke="currentColor"
+                                      class="w-6 h-6 font-bold align-middle fill-red-500">
+                                      <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                                    </svg></span>
+                                  <span class="inline-flex font-bold align-top">
+                                    ({{
+                                      presentageInc.previous
+                                    }}%)
+                                  </span>
+                                  <span
+                                    class="inline-flex px-1 mt-0 text-xs text-gray-400 align-text-top xs:align-baseline">
+                                    {{
+                                      $t('pages.water-bill-calculator.other.since_sep') }}
+                                  </span>
+                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                      </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter class="flex flex-col items-center space-y-2 md:space-y md:flex-row md:justify-between">
+                  <p>
+                  *{{ $t('pages.water-bill-calculator.headings.note') }}
+                  <!-- <Anchor class="font-bold underline capitalize" :text="
+                      $t(
+                        'pages.setting.sections.validate_username.footer_link'
+                      )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                "
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -870,8 +870,8 @@
                       'others.comming_soon'
                     )
                   " />
-                                                                                              </CardContent>
-                                                                                            </Card> -->
+                                                                                                </CardContent>
+                                                                                              </Card> -->
             </TabPanel>
           </TabPanels>
         </TabGroup>

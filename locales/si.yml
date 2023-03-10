@@ -22,7 +22,7 @@ pages:
     title: පිටුව සොයා ගැනීමට නොහැක
   electricity-bill-calculator:
     nav: විදුලි බිල්පත් කැල්ක්යුලේටරය
-    title: ජල බිල්පත් කැල්ක්යුලේටරය
+    title: විදුලි බිල්පත් කැල්ක්යුලේටරය
     description: විදුලි බිල්පත් කැල්ක්යුලේටරය by numbers.lk
     tabs:
       domestic: ගෘහස්ත
@@ -34,11 +34,11 @@ pages:
       description: විදුලි බිල්පත ගණනය කිරීම සදහා ඔබ පරිභෝජනය කල ඒකක ගණන හා බිල්පත් කාලය ඇතුලත් කරන්න
       note: නව ගාස්තු වෙනස් කිරීම 2023 පෙබරවාරි 15 ​​දින සිට බලාත්මක විය. එබැවින් 2023 පෙබරවාරි බිල්පත සදහා පැරණි සහ නව ගාස්තු ක්‍රම දෙකම සලකා බැලෙනු ලැබේ.
     other:
-      units: එකක ගණන
+      units: ඒකක ගණන
       period: කාලය
       tariff: අය ක්‍රමය
       fixed_charge: ස්ථාවර ගාස්තු
-      energy_charge: පරිභෝජන ගාස්තු
+      energy_charge: පරිහරණ ගාස්තු
       total_before_tax: බදු වලට පෙර ගෙවිය යුතු මුළු මුදල
       total_with_tax: ගෙවිය යුතු මුලු මුදල
       included: ඇතුලත්
@@ -53,12 +53,12 @@ pages:
     title: ජල බිල්පත් කැල්ක්යුලේටරය
     description: ජල බිල්පත් කැල්ක්යුලේටරය  by numbers.lk
     tabs:
-      samurdhi: සමෘද්ධි ලාභී නිවාස
-      samurdhi-desc: සමෘද්ධි ලාභී නිවාස
-      state: සමෘද්ධි ලාභී නොවන වතු නිවාස
-      state-desc: සමෘද්ධි ලාභී නොවන වතු නිවාස
-      domestic: ගෘහස්ත
-      domestic-desc: සමෘද්ධි ලාභී හා  වතු නිවාස නොවන නිවාස
+      samurdhi: සමෘද්ධිලාභී නිවාස
+      samurdhi-desc: සමෘද්ධිලාභී නිවාස
+      state: සමෘද්ධිලාභී නොවන වතු නිවාස
+      state-desc: සමෘද්ධිලාභී නොවන වතු නිවාස
+      domestic: ගෘහස්ත සමෘද්ධිලාභී හෝ වතු ජනාවාස නොවන
+      domestic-desc: ගෘහස්ත සමෘද්ධිලාභී හෝ වතු ජනාවාස නොවන
     headings:
       title: ජල බිල්පත ගණනය කරන්න
       description: ජල බිල්පත ගණනය කිරීම සදහා ඔබ පරිභෝජනය කල ඒකක ගණන හා බිල්පත් කාලය ඇතුලත් කරන්න
@@ -66,7 +66,7 @@ pages:
     other:
       units: ඒකක ගණන
       period: කාලය
-      period_of_30days: දින 30 සදහා
+      period_of_30days: දින 30 ක් සදහා
       tariff: අය ක්‍රමය
       fixed_charge: ස්ථාවර ගාස්තු
       energy_charge: පරිභෝජන ගාස්තු
@@ -114,11 +114,11 @@ pages:
 banners:
   welcome: hello, welcome to %{app_name}!
 footer:
-  keep_in_touch: අප සමග සම්බන්ද වන්න
-  find_us_on: පහත ඔස්සේ අප හා සම්බන්ධ විය හැකියි.
+  keep_in_touch: අප සමග සම්බන්ධ වන්න
+  find_us_on: පහත ක්‍රම ඔස්සේ අප සමඟ සම්බන්ධ විය හැකියි.
 others:
   learn_more: තව දුරටත් අධ්‍යනය කිරීමට
-  comming_soon: ඉක්මනින්ම
+  comming_soon: ඉදිරියේදී බලාපොරොත්තු වන්න
   copy: පිටපත් කරන්න
   calculate: ගණනය කරන්න
   enabled: enabled

@@ -10,14 +10,14 @@ const date = ref(new Date().getFullYear())
 <template>
   <footer
     class="relative bottom-0 pt-16 pb-6 bg-slate-100 text-slate-800 dark:text-slate-100 dark:bg-slate-800 font-atkinson">
-    <div class="container px-4 mx-auto">
+    <div class="container px-2 mx-auto md:px-4">
       <div class="flex flex-wrap">
-        <div class="w-full px-4 lg:w-6/12">
-          <h4 class="text-3xl font-semibold">
-            Let's keep in touch!
+        <div class="w-full px-1 md:px-4 lg:w-6/12">
+          <h4 class="text-2xl font-semibold">
+            {{ $t('footer.keep_in_touch') }}
           </h4>
           <h5 class="mt-0 mb-2 text-lg text-gray-600 dark:text-gray-200">
-            Find us on any of these platforms,
+            {{ $t('footer.find_us_on') }}
           </h5>
           <div class="flex mt-6">
             <a class="flex items-center justify-center w-10 h-10 mr-2 font-normal text-blue-400 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
@@ -42,15 +42,15 @@ const date = ref(new Date().getFullYear())
           </a>
           <!-- <a
               class="items-center justify-center w-10 h-10 mr-2 font-normal text-gray-900 bg-white rounded-full shadow-lg outline-none align-center focus:outline-none"
-                              href="https://github.com/numbers.lk"
-                              target="_blank"
-                              type="button"
-                            >
-                              <font-awesome-icon
-                                class="mt-3 ml-3"
-                                :icon="{ prefix: 'fab', iconName: 'github' }"
-                              />
-                            </a> -->
+                                          href="https://github.com/numbers.lk"
+                                          target="_blank"
+                                          type="button"
+                                        >
+                                          <font-awesome-icon
+                                            class="mt-3 ml-3"
+                                            :icon="{ prefix: 'fab', iconName: 'github' }"
+                                          />
+                                        </a> -->
           </div>
         </div>
       </div>

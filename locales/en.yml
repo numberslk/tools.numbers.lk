@@ -26,9 +26,9 @@ pages:
     description: Electricity Bill Calculator by numbers.lk
     tabs:
       domestic: DOMESTIC
-      domesticTOU: Domestic TOU
-      industrial: Industrial
-      general: General Purpose
+      domesticTOU: DOMESTIC TOU
+      industrial: INDUSTRIAL
+      general: GENERAL PURPOSE
     headings:
       title: Calculate Your Electricity Bill
       description: Enter your monthly consumption and your bill period to generate the bill.

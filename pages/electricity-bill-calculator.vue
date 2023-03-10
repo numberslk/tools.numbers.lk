@@ -5,8 +5,8 @@
   <!-- <PageSection class="mb-0">
       <Alert type="success" title="This is a page for testing purposes"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        class="mb-6" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </PageSection> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  class="mb-6" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </PageSection> -->
     <MobileTopFixAd class="flex items-center justify-center mt-4 text-center md:hidden md:space-x-4" />
     <PageTopAd class="items-center justify-center hidden mt-4 text-center md:flex md:space-x-4" />
     <PageHeader>
@@ -62,7 +62,7 @@
               <Card class="mb-4">
                 <CardContent>
                   <CardTitle class="capitalize" :text="$t('pages.electricity-bill-calculator.headings.title')" />
-                  <p class="mb-4 leading-snug">
+                  <p class="mb-4 text-base leading-snug">
                     {{
                       $t('pages.electricity-bill-calculator.headings.description')
                     }}
@@ -79,7 +79,7 @@
                       </FormTextInput>
                     </div>
 
-                    <div class="relative flex w-full mb-2 md:mb-0">
+                    <div class="relative flex w-full mb-2 lg:mb-0">
                       <div
                         class="flex text-gray-500 border bg-gray-100 border-gray-900/10 rounded-l-sm dark:border-gray-50/[0.2] dark:bg-slate-800">
                         <span class="flex-1 px-2 py-2"><span class="flex-1 px-2 py-2"> {{
@@ -87,12 +87,13 @@
                         }}</span></span>
                       </div>
                       <vue-tailwind-datepicker :formatter="formatter" separator=" to "
-                        class="w-full rounded-none rounded-r-md dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
-                        v-model="dateValue" />
+                        class="w-full rounded-sm dark:bg-transparent dark:focus:border-white focus:border-gray-900 border-gray-900/10 dark:border-gray-50/[0.2]"
+                        v-model="dateValue" :shortcuts="customShortcuts" :disable-date="dDate"
+                        :options="datePickeroptions" />
                     </div>
 
                     <Button type="opposite" @click="calculateFinalBill" placeholder="Enter number of Units"
-                      class="flex mb-2 space-x-1 bg-yellow-500 border-none md:mb-0">
+                      class="flex py-2 space-x-1 bg-green-800 lg:mb-0">
                       <icon-ic:baseline-calculate />
                       <span>{{ $t('others.calculate') }}</span>
                     </Button>
@@ -119,8 +120,8 @@
                                   $t('pages.electricity-bill-calculator.other.energy_charge') }}</div>
                             </th>
                             <!-- <th class="p-1">
-                                                                                                                                                                                                                                  <div class="font-semibold text-left">Total Before Tax</div>
-                                                                                                                                                                                                                                </th> -->
+                                                                                                                                                                                                                                                                                                                                                                                                            <div class="font-semibold text-left">Total Before Tax</div>
+                                                                                                                                                                                                                                                                                                                                                                                                          </th> -->
                               <th class="p-1 align-text-top">
                                 <div class="font-medium text-left">{{
                                   $t('pages.electricity-bill-calculator.other.total_before_tax') }}</div>
@@ -155,8 +156,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left md:text-lg">
                                   {{ totalsBeforeTaxes.previous.toFixed(2) }}
-                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                          </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -192,8 +193,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.current).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                  </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -229,8 +230,8 @@
                             <!-- <td class="w-2/12 p-1">
                                 <div class="text-base font-medium text-left text-blue-400 md:text-lg">
                                   {{ (totalsBeforeTaxes.new).toFixed(2) }}
-                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                  </td> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </td> -->
 
                               <td class="w-3/12 p-1 align-text-top">
                                 <div class="text-base font-medium text-left md:text-lg">
@@ -327,8 +328,8 @@
                       $t(
                         'pages.setting.sections.validate_username.footer_link'
                       )
-                                                                                                                                                                                                            "
-                                                                                                                                                                                                              href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
+                                                                                                                                                                                                                                                                                                                                                                                      "
+                                                                                                                                                                                                                                                                                                                                                                                        href="https://docs.github.com/en/rest/users/users#get-a-user" /> -->
                   </p>
                 </CardFooter>
               </Card>
@@ -425,47 +426,75 @@ useHead(() => ({
   ],
 }))
 
-// funcs
-const randomToken = () => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  let token = ''
-  for (let i = 0; i < 255; i++) {
-    token += chars.charAt(Math.floor(Math.random() * chars.length))
-  }
-  return token
-}
-
 // state
-const id = ref(randomToken())
-const enableSpamProtection = ref(false)
-const enableDirList = ref(false)
-const enableAdvancedSetting = ref(false)
-
-// methods
 
 
 // app.component('ByLine', ByLine)
 
 const log = ref<string[]>([])
 
+const date = new Date();
 const dateValue = ref()
+
 const formatter = ref({
   date: 'DD MMM YYYY',
   month: 'MMM',
 })
 
-// const options = ref({
-//   shortcuts: {
-//     past: (period: any) => period + 'Past',
-//     currentMonth: 'Current Month',
-//     pastMonth: 'Past Month'
-//   },
-//   footer: {
-//     apply: 'Apply',
-//     cancel: 'Cancel'
-//   }
-// })
-// { id: 2, name: 'Previous Month Bill (Rs.)' },
+const datePickeroptions = ref({
+  shortcuts: {
+    past: (period: any) => period + ' Days',
+    currentMonth: 'Current Months',
+    pastMonth: 'Past 30 days'
+  },
+  footer: {
+    apply: 'Apply',
+    cancel: 'Cancel'
+  }
+})
+
+const dDate = (date: any) => {
+  return date < new Date(2023, 0, 15);
+}
+
+const customShortcuts = () => {
+  return [
+    {
+      label: 'Last 30 Days',
+      atClick: () => {
+        const today = new Date();
+        return [
+          new Date(new Date().setDate(today.getDate() - 30)),
+          date
+        ];
+      }
+    },
+    {
+      label: 'Last Month',
+      atClick: () => {
+        const date = new Date();
+        const firstDay = new Date(date.getFullYear(), date.getMonth() - 2, 1);
+        const lastDay = new Date(date.getFullYear(), date.getMonth() - 1, 0);
+        return [
+          firstDay,
+          lastDay
+        ];
+      }
+    },
+    {
+      label: 'This Month',
+      atClick: () => {
+        const date = new Date();
+        const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+        const lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
+        return [
+          firstDay,
+          lastDay
+        ];
+      }
+    }
+  ]
+}
 
 const totals = reactive(
   {
@@ -481,15 +510,12 @@ const totalsBeforeTaxes = reactive({
   new: 0
 })
 
-
-
 const presentageInc = reactive(
   {
     previous: "",
     now: ""
   }
 )
-
 
 const applicableFixedCharge = reactive(
   {
@@ -506,7 +532,6 @@ const applicableEnergyCharge = reactive(
     new: 0
   }
 )
-
 
 const fixedCharge = reactive(
   {
@@ -574,10 +599,13 @@ const energyCharge = reactive(
   }
 )
 
-const units = ref("")
+const units = ref()
 const enabled = ref(false)
 const units2 = ref(0)
 
+onMounted(() => {
+  units.value = 0; // <div>
+})
 // let i = 0;
 // let array = [];
 

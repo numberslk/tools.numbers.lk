@@ -32,7 +32,7 @@ pages:
     headings:
       title: Calculate Your Electricity Bill
       description: Enter your monthly consumption and your bill period to generate the bill.
-      note: New tariff change came in to effect on Feb 15, 2023. Therefore Feb 2023 bill considers both old and new tariffs
+      note: New tariff change came into effect on Feb 15, 2023. Therefore Feb 2023 bill considers both old and new tariffs
     other:
       units: Units
       period: Period
@@ -63,7 +63,7 @@ pages:
     headings:
       title: Calculate Your Water Bill
       description: Enter your monthly consumption and your bill period to generate the bill.
-      note: New tariff came in to effect on Sep 01, 2022.
+      note: New tariff came into effect on Sep 01, 2022.
     other:
       units: Units
       period: Period
@@ -119,7 +119,7 @@ footer:
   find_us_on: Find us on any of these platforms,
 others:
   learn_more: learn more
-  comming_soon: Comming Soon
+  comming_soon: Coming Soon
   copy: copy
   calculate: Calculate
   enabled: enabled

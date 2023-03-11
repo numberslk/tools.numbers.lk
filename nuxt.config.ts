@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   ],
 
   // plugins
-  plugins: ["~/plugins/navbar.ts"],
+  plugins: ["~/plugins/navbar.ts", "~/plugins/vue-gtag.client.ts"],
 
   // build
   build: {
@@ -34,7 +34,10 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@vueuse/nuxt",
     "nuxt-windicss",
-    "@nuxt/image-edge"
+    "@nuxt/image-edge",
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-9851193750585592'
+    }]
   ],
   runtimeConfig: {
     public: {

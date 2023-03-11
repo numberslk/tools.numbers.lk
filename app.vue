@@ -23,8 +23,8 @@ useHead({
       content: 'Numbers.lk Tools',
     },
     {
-      hid: 'og:image',
-      property: 'og:image',
+      hid: 'twitter:image',
+      property: 'twitter:image',
       content: './assets/images/numberslktools.png',
     },
     {

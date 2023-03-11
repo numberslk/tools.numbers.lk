@@ -34,18 +34,10 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@vueuse/nuxt",
     "nuxt-windicss",
-    "@nuxt/image-edge",
-    ["@storyblok/nuxt", { accessToken: process.env.STORYBLOK_PREVIEW_TOKEN }]
+    "@nuxt/image-edge"
   ],
-
   runtimeConfig: {
-    // STORYBLOK_AUTH_TOKRN: process.env.STORYBLOK_AUTH_TOKRN,
-    STORYBLOK_PUBLIC_TOKEN: process.env.STORYBLOK_PUBLIC_TOKEN,
-    STORYBLOK_PREVIEW_TOKEN: process.env.STORYBLOK_PREVIEW_TOKEN,
-    NEWSORG_API_KEY: process.env.NEWSORG_API_KEY,
-
     public: {
-      DISQUS_SHORT_NAME: process.env.DISQUS_SHORT_NAME,
       BASE_URL: process.env.BASE_URL,
       BACKEND_URL: process.env.BACKEND_URL
     }

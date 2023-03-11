@@ -10,14 +10,14 @@ pages:
     title: මුල් පිටුව
   index:
     title: numbers.lk tools
-    open: විවෘත
+    open: පිවිසෙන්න
     tools:
       electricity-bill-calculator:
         title: විදුලි බිල්පත් කැල්ක්යුලේටරය
         description: විදුලි බිල්පත ගණනය කිරීම සදහා ඔබ පරිභෝජනය කල ඒකක ගණන හා බිල්පත් කාලය ඇතුලත් කරන්න
       water-bill-calculator:
         title: ජල බිල්පත් කැල්ක්යුලේටරය
-        Description: ජල බිල්පත ගණනය කිරීම සදහා ඔබ පරිභෝජනය කල ඒකක ගණන හා බිල්පත් කාලය ඇතුලත් කරන්න
+        description: ජල බිල්පත ගණනය කිරීම සදහා ඔබ පරිභෝජනය කල ඒකක ගණන හා බිල්පත් කාලය ඇතුලත් කරන්න
   404:
     title: පිටුව සොයා ගැනීමට නොහැක
   electricity-bill-calculator:
@@ -87,7 +87,7 @@ pages:
     sections:
       validate_username:
         title: Calculate your Electricity Bill
-        description: Enter your monthly consumption and your bill period to generate bill.
+        description: ජල බිල්පත ගණනය කිරීම සදහා ඔබ පරිභෝජනය කල ඒකක ගණන හා බිල්පත් කාලය ඇතුලත් කරන්න
         footer: Learn more about
         footer_button: validate
         footer_link: github users api

@@ -15,8 +15,24 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: 'Numbers.lk',
+      content: 'Numbers.lk Tools',
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'Numbers.lk Tools',
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: './assets/images/numberslktools.png',
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: 'summary_large_image',
     }
+
   ],
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 })
@@ -28,6 +44,7 @@ useHead({
 //     nestedShowed.value = false;
 //   }
 // });
+
 
 </script>
 

@@ -74,7 +74,7 @@ const toggleOptions = (show?: boolean) => {
               <span class="sr-only">home</span>
               <span class="flex items-center">
 
-                <img loading="lazy" src="../../assets/icons/icon.png"
+                <img loading="lazy" alt="numbers.lk logo" src="../../assets/icons/icon.png"
                   class="inline-block w-8 h-8 mr-1.5 font-atkinson text-lg text-primary-500" />
                 {{ app.name }}
                 <span class="inline-block ml-1 text-lg font-semibold text-green-600"> tools.</span>

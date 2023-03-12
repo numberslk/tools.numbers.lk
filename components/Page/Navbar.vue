@@ -22,8 +22,8 @@ const menus = computed((): IMenuItem[] => [
   // { type: 'link', text: t('pages.post.nav'), route: { name: 'post' } },
   // { type: 'link', text: t('pages.setting.nav'), route: { name: 'setting' } },
   { type: 'link', text: t('pages.home.nav'), route: { name: 'index' } },
-  { type: 'link', text: t('pages.electricity-bill-calculator.nav'), route: { name: 'electricity-bill-calculator' } },
-  { type: 'link', text: t('pages.water-bill-calculator.nav'), route: { name: 'water-bill-calculator' } },
+  { type: 'link', text: t('pages.electricity-bill-calculator.nav'), route: { name: 'eleccal' } },
+  { type: 'link', text: t('pages.water-bill-calculator.nav'), route: { name: 'watercal' } },
   // { type: 'link', text: t('pages.opinions-and-analysis.nav'), route: { name: 'analysis' } },
   // {
   //   type: 'button',

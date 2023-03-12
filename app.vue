@@ -9,18 +9,13 @@ const app = useAppConfig() as AppConfigInput
 
 useHead({
   title: app.name,
-  titleTemplate: '%s - Numbers.lk',
+  titleTemplate: '%s - Tools',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     {
       hid: 'description',
       name: 'description',
-      content: 'Numbers.lk Tools',
-    },
-    {
-      hid: 'description',
-      name: 'description',
-      content: 'Numbers.lk Tools',
+      content: 'Numbers.lk tools offer an efficient way for Sri Lankans to manage their utility bills. With the electricity bill and water bill calculators, users can quickly calculate their monthly bills based on the latest tariff rates.',
     },
     {
       hid: 'twitter:image',
